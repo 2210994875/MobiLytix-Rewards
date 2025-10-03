@@ -22,7 +22,7 @@
 }
 
 .terms-modal-header {
-  background: #8a1538;
+  background: #46597d;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -79,7 +79,7 @@
 }
 
 .toggle-switch.on {
-  background: #8a1538; /* use theme maroon instead of green */
+  background: #46597d; /* use theme maroon instead of green */
 }
 
 .toggle-slider {

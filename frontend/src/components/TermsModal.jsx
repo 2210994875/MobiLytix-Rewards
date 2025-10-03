@@ -12,6 +12,7 @@ export default function TermsModal({ open, onClose }) {
           <button className="close-btn" onClick={onClose}>×</button>
         </header>
 
+      
         <div className="terms-modal-body">
           <p>
             These terms and conditions outline the rules and regulations for using this service.

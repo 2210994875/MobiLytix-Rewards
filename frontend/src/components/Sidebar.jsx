@@ -17,7 +17,7 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       {/* Logo / Title */}
-      <h2 className="sidebar-title">Make My Trip</h2>
+      <h2 className="sidebar-title">COMVIVA</h2>
 
       {/* User Section */}
       <div className="sidebar-user">
@@ -38,22 +38,16 @@ export default function Sidebar() {
           <FaTachometerAlt className="icon" />
           <Link to="/">Dashboard</Link>
         </li>
-        <li className={location.pathname === "/discounts" ? "active" : ""}>
-          <FaTags className="icon" />
-          <Link to="/discounts">Give Discounts</Link>
-        </li>
-        <li className={location.pathname === "/voucher" ? "active" : ""}>
-          <FaGift className="icon" />
-          <Link to="/voucher">Voucher Validation</Link>
-        </li>
         <li className={location.pathname === "/company-profile" ? "active" : ""}>
           <FaUser className="icon" />
           <Link to="/company-profile">Company Profile</Link>
         </li>
-        <li className={location.pathname === "/settlement" ? "active" : ""}>
-          <FaFileInvoiceDollar className="icon" />
-          <Link to="/settlement">Settlement Tab</Link>
-        </li>
+      <li className={location.pathname === "/language" ? "active" : ""}>
+  <FaFileInvoiceDollar className="icon" />
+  <Link to="/language">Language settings</Link>
+</li>
+
+  
         <li>
           <FaSignOutAlt className="icon" />
           <Link to="/logout">Sign Out</Link>

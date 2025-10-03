@@ -1,0 +1,28 @@
+.dashboard-container {
+  position: relative;
+  padding: 20px;
+}
+
+/* Small circular "i" button */
+.info-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background-color: #1c448e;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s;
+}
+
+.info-btn:hover {
+  background-color: #153670;
+}

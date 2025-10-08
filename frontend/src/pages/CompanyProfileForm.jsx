@@ -1289,18 +1289,42 @@ const validate = (f) => {
   // 🌍 Global fields
   if (!has(f.company_id)) e.company_id = t.company_id;
 
-  // ✅ Company name must exist in at least one language
-  const hasCompanyName = Object.values(f.languages || {}).some(
-    (lang) => has(lang.company)
-  );
-  if (!hasCompanyName)
-    e.company_name = t.company_name_required || "Company name is required in at least one language.";
+  // // ✅ Company name must exist in at least one language
+  // const hasCompanyName = Object.values(f.languages || {}).some(
+  //   (lang) => has(lang.company)
+  // );
+  // if (!hasCompanyName)
+  //   e.company_name = t.company_name_required || "Company name is required";
 
-  // 🈯 Language-specific required fields (for current active language)
-  if (!has(langData.company)) e.company = t.company_name || "Company name is required.";
-  if (!has(langData.desc)) e.description = t.description || "Description is required.";
-  if (!has(langData.address)) e.address = t.address || "Address is required.";
-  if (!has(langData.owner)) e.owner = t.owner || "Owner is required.";
+// ✅ Company Name – required in at least one language
+// ✅ Company Name – required in at least one language
+const hasCompanyName = Object.values(f.languages || {}).some(
+  (lang) => lang.company_name && lang.company_name.trim() !== ""
+);
+if (!hasCompanyName)
+  e.company_name = t.company_name_required || `${t.company_name || "Company Name"}`;
+
+// ✅ Description – required in at least one language
+const hasDescription = Object.values(f.languages || {}).some(
+  (lang) => lang.description && lang.description.trim() !== ""
+);
+if (!hasDescription)
+  e.description = t.description_required || `${t.description || "Description"}`;
+
+// ✅ Address – required in at least one language
+const hasAddress = Object.values(f.languages || {}).some(
+  (lang) => lang.address && lang.address.trim() !== ""
+);
+if (!hasAddress)
+  e.address = t.address_required || `${t.address || "Address"}`;
+
+// ✅ Owner – required in at least one language
+const hasOwner = Object.values(f.languages || {}).some(
+  (lang) => lang.owner && lang.owner.trim() !== ""
+);
+if (!hasOwner)
+  e.owner = t.owner_required || `${t.owner || "Owner"}`;
+
 
   // ✉️ Email validation
   const emailRx = /\S+@\S+\.\S+/;
@@ -1598,36 +1622,35 @@ const handleFieldChange = (e, langCode = null) => {
     {messages[activeLang]?.labels?.welcome || messages.en.labels.welcome}
   </h3>
 
-{["company", "desc", "address", "owner"].map((field) => (
-  <div className="field" key={field}>
-    <label>
-      {messages[activeLang]?.labels?.[field === "desc" ? "description" : field] ||
-        messages.en.labels[field === "desc" ? "description" : field]}
-      <span className="required">*</span>
-    </label>
+  {["company_name", "description", "address", "owner"].map((field) => (
+    <div className="field" key={field}>
+      <label>
+        {messages[activeLang]?.labels?.[field] ||
+          messages.en.labels[field]}
+        <span className="required">*</span>
+      </label>
 
-    {field === "desc" || field === "address" ? (
-      <textarea
-        name={field}
-        rows="3"
-        value={form.languages?.[activeLang]?.[field] || ""}
-        onChange={(e) => handleChange(e, activeLang)}
-      />
-    ) : (
-      <input
-        name={field}
-        value={form.languages?.[activeLang]?.[field] || ""}
-        onChange={(e) => handleChange(e, activeLang)}
-      />
-    )}
-     {/* ✅ Show company_name error right under the company field */}
-      {field === "company" && errors.company_name && (
-        <p className="error">{errors.company_name}</p>
+      {field === "description" || field === "address" ? (
+        <textarea
+          name={field}
+          rows="3"
+          value={form.languages?.[activeLang]?.[field] || ""}
+          onChange={(e) => handleChange(e, activeLang)}
+        />
+      ) : (
+        <input
+          name={field}
+          value={form.languages?.[activeLang]?.[field] || ""}
+          onChange={(e) => handleChange(e, activeLang)}
+        />
       )}
-  </div>
-))}
 
+      {/* ✅ Display validation errors for all language fields */}
+      {errors[field] && <p className="error">{errors[field]}</p>}
+    </div>
+  ))}
 </div>
+
 
 {/* 🌍 Global Fields Section */}
 {/* 🆔 Company ID (Manual Entry) */}

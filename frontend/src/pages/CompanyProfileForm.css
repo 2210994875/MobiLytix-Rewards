@@ -12,10 +12,15 @@
   align-items: center;
   text-align: center;
   padding: 25px 0;
-  border-bottom-left-radius: 40px;
-  border-bottom-right-radius: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  /* 🌀 curve now on the TOP instead of bottom */
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  /* 💫 subtle drop shadow for depth */
+  box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
 }
+
 
 
 .banner h1 {

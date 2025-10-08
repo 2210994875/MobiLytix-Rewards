@@ -119,7 +119,7 @@
   position: sticky;                  /* ✅ stays visible while scrolling */
   top: 0;
   left: 0;
-  height: 185vh;                     /* full height of viewport */
+  height: 100vh;                     /* full height of viewport */
   width: 250px;
   background: linear-gradient(180deg, #1C448E, #938BA1);
   color: #F4FDFF;

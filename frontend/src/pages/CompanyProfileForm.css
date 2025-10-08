@@ -1,32 +1,49 @@
 .register-container {
   font-family: Arial, sans-serif;
   color: #333;
-}
+  }
 
-/* Banner */
+ /* Center the top banner heading */
 .banner {
-  background: #1f2937; /* dark grey */
-  color: white;
-  text-align: center;
-  padding: 20px 0;
-  margin-bottom: 30px;
+  background: #1f2937;
+  color: #ffffff;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  padding: 25px 0;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+.banner h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+}
+/* Center the "Company Information" title inside the white card */
+/* .form-card h2 {
+  text-align: center;
+  font-size: 29px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #1f2937;
+}
 /* Form Card */
-.form-card {
+/* .form-card {
   background: #fff;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
+} */
+/* 
 .form-card h2 {
   margin-bottom: 20px;
-  color: #1f2937; /* deep grey */
-}
+  color:#1f2937; deep grey
+}  */
 
 /* Layout */
 .row {
@@ -98,6 +115,16 @@ input:focus, textarea:focus, select:focus {
   background: #0e7490; /* darker cyan */
 }
 
+.welcome-heading {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: #00e5ff;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  letter-spacing: 0.5px;
+}
+
 /* Footer */
 .footer {
   text-align: center;
@@ -166,12 +193,13 @@ label[data-required]::after {
 
 /* Language Card */
 .lang-card {
-  background: linear-gradient(135deg, #1f2937, #374151, #111827);
+  background: linear-gradient(135deg, #1f2937, #374151, #111827); 
+  /* background: white; */
   color: #fff;
   border-radius: 20px;
   padding: 30px;
-  margin: 30px auto;
-  max-width: 90%;
+  margin: 40px auto;
+  max-width: 100%;
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -185,7 +213,7 @@ label[data-required]::after {
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: bold;
-  color: #06b6d4;
+  color: black;  /* 💡 Bright cyan-blue for visibility */
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 8px;
 }
@@ -199,8 +227,9 @@ label[data-required]::after {
 .lang-card label {
   font-size: 14px;
   margin-bottom: 6px;
-  font-weight: 500;
-  opacity: 0.9;
+  font-weight: 600;
+  color: #e5e7eb; /* 💡 Light grey, improves visibility */
+  opacity: 1;     /* 💡 Remove faded look */
 }
 
 .lang-card input,
@@ -263,7 +292,7 @@ label[data-required]::after {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
+/* 
 /* Company Table */
 .company-table-container {
   margin-top: 30px;
@@ -334,3 +363,8 @@ label[data-required]::after {
   font-size: 0.9rem;
   color: #555;
 }
+.required {
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+} 

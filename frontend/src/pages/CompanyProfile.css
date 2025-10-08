@@ -1,7 +1,7 @@
-.register-container {
+/* .register-container {
   font-family: Arial, sans-serif;
   color: #333;
-}
+} */
 
 /* Banner */
 .banner {
@@ -97,14 +97,14 @@ input:focus, textarea:focus, select:focus {
 }
 
 /* Footer */
-.footer {
+/* .footer {
   text-align: center;
   margin-top: 40px;
   padding: 15px;
   background: #46597d;
   color: white;
   border-radius: 0 0 8px 8px;
-}
+} */
 
 /* File input */
 input[type="file"] {
@@ -129,80 +129,192 @@ label[data-required]::after {
   box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
 }
 
-/* Language Card */
-.lang-card {
-  background: #eaeaea; /* soft grey card */
-  color: #333;
-  border-radius: 16px;
-  padding: 20px;
-  margin: 20px 0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.lang-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.lang-fields h3 {
-  margin-bottom: 15px;
-  font-size: 18px;
-  color: #46597d;
-  border-bottom: 1px solid #ccc;
-  padding-bottom: 8px;
-}
-
-.lang-fields input,
-.lang-fields textarea {
-  background: #fff;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  padding: 10px;
-  color: #333;
-  font-size: 14px;
-}
-
-.lang-fields input:focus,
-.lang-fields textarea:focus {
-  border-color: #46597d;
-  box-shadow: 0 0 0 2px rgba(70, 89, 125, 0.3);
-}
-
-/* Buttons inside language section */
-.lang-btn {
-  background: #46597d;
-  color: white;
-  padding: 12px 24px;
-  border: none;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.lang-btn:hover {
-  background: #354463;
-  transform: translateY(-2px);
-}
-
 /* Company Table */
-.company-table-container {
+/* .company-table-container {
   margin-top: 30px;
   background: #fff;
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
-}
+} */
 
-.company-table-container h2 {
+/* .company-table-container h2 {
   margin-bottom: 15px;
   color: #46597d;
+} */
+ /* table heading */
+
+.company-table-container h2 {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 800;
+  color: #1c448e;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
+.company-table-container h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #1c448e, #00aaff);
+  margin: 10px auto 0;
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.company-table-container h2:hover::after {
+  width: 120px;
+}
+
+/* 🌙 Modern Dashboard Table */
+/* 🌤️ Light Dashboard Table */
+.company-table-container {
+  margin-top: 30px;
+  background: #ffffff; /* white background */
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+  color: #1c1c1c;
+}
+
+/* Header title */
+.company-table-container h2 {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #1c448e;
+  margin-bottom: 25px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+/* Table base */
 .company-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+  color: #222;
+}
+
+/* Table header -- table column bar*/
+.company-table th {
+  background: linear-gradient(90deg, #1c448e 0%, #2a5298 100%);
+  color: black; /* pure white text */
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 16px 18px;
+  letter-spacing: 0.8px;
+  border-bottom: 4px solid #1565c0;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.company-table th {
+  background-color: lightgrey !important;
+  color: black !important;
+}
+
+
+/* Table rows */
+.company-table td {
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4e4e4;
+  vertical-align: middle;
+}
+
+/* Zebra rows */
+.company-table tr:nth-child(even) {
+  background: #f7f9fc;
+}
+
+/* Hover effect */
+.company-table tr:hover {
+  background: #eaf2ff;
+  transition: background 0.25s ease;
+}
+
+/* Column icons */
+.company-table td.email::before {
+  content: "📧";
+  margin-right: 6px;
+  color: #1c448e;
+}
+
+.company-table td.mobile::before {
+  content: "📞";
+  margin-right: 6px;
+  color: #e91e63;
+}
+
+.company-table td.category::before {
+  margin-right: 6px;
+  color: #0078d4;
+}
+
+.company-table td.subcategory::before {
+  margin-right: 6px;
+  color: #009688;
+}
+
+.company-table td.discount::before {
+  content: "🏷️";
+  margin-right: 4px;
+  color: #00a86b;
+}
+
+/* Buttons
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.edit-btn {
+  color: #ff6f00;
+}
+
+.delete-btn {
+  color: #e53935;
+}
+
+.edit-btn:hover {
+  transform: scale(1.2);
+  color: #ffa726;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+  color: #ff5252;
+} */
+
+/* Download link */
+.company-table td a {
+  color: #0078d4;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.company-table td a:hover {
+  color: #00b0ff;
+  text-decoration: underline;
+}
+
+
+/* .company-table {
   width: 100%;
   border-collapse: collapse;
 }
@@ -218,8 +330,8 @@ label[data-required]::after {
 
 .company-table th {
   background: linear-gradient(90deg, #46597d, #2c3e50); /* dark gradient */
-  color: #ffffff;         /* pure white text */
-  font-weight: bold;
+  /* color: #ffffff;         /* pure white text */
+  /* font-weight: bold;
   text-transform: uppercase;
   text-align: center;
   font-size: 14px;
@@ -229,13 +341,13 @@ label[data-required]::after {
 .company-table th {
   background: #46597d !important;
   color: #ffffff !important;
-}
+}  */
 
-.company-table tr:hover {
+/* .company-table tr:hover {
   background: #f1f1f1;
-}
+}  */
 
-.edit-btn {
+/* .edit-btn {
   color: #46597d;
   border: none;
   cursor: pointer;
@@ -251,24 +363,148 @@ label[data-required]::after {
   font-size: 16px;
   margin: 0 5px;
   background: none;
+} */
+ /* === ACTION BUTTONS (Final Version) === */
+/* ===== ACTION BUTTONS FIX ===== */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
+
+/* Common base for both buttons */
+.action-btn {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: #fff; /* white icon */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+}
+
+/* 🟦 Edit Button */
+.edit-btn {
+  background-color: #007bff !important; /* blue */
+  color: #fff !important; /* white icon */
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.3);
+}
+
+.edit-btn:hover {
+  background-color: #0056b3 !important;
+  transform: translateY(-2px);
+}
+
+/* 🟥 Delete Button */
+.delete-btn {
+  background-color: #dc3545 !important; /* red */
+  color: #fff !important; /* white icon */
+  box-shadow: 0 2px 6px rgba(220, 53, 69, 0.3);
+}
+
+.delete-btn:hover {
+  background-color: #b02a37 !important;
+  transform: translateY(-2px);
+}
+
+/* Prevent background reset from table hover */
+.company-table tr:hover .action-btn {
+  background-color: inherit;
+}
+
 .create-company-link {
+  position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  font-size: 14px;
-  font-weight: 600;
-  border: 2px solid #0078d4; /* same blue as Add New Language */
-  border-radius: 50px;
-  color: #0078d4;
-  background: #fff;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;              /* bigger box */
+  font-size: 16px;                 /* larger text */
+  font-weight: 700;                /* bold text */
+  color: #1c448e;                 /* blue text */
+  background-color: #fff;          /* white background */
   text-decoration: none;
+  border: 2.5px solid #1c448e;     /* solid blue border */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+
+  
+}
+
+/* Corner borders */
+.create-company-link::before,
+.create-company-link::after {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid #1c448e;
   transition: all 0.3s ease;
 }
 
-.create-company-link:hover {
-  background: black;
-  color: #fff;
+.create-company-link::before {
+  top: 8px;
+  left: 8px;
+  border-right: none;
+  border-bottom: none;
 }
 
+.create-company-link::after {
+  bottom: 8px;
+  right: 8px;
+  border-left: none;
+  border-top: none;
+}
+
+/* Hover animation */
+.create-company-link:hover::before {
+  top: 0;
+  left: 0;
+}
+
+.create-company-link:hover::after {
+  bottom: 0;
+  right: 0;
+}
+
+.create-company-link:hover {
+  background-color: #1c448e;
+  color: #fff;                     /* invert color on hover */
+  transform: scale(1.05);
+}
+
+
+.create-company-link {
+  position: relative;
+  left: -20px; /* 👈 move left by 20px */
+}
+/* Ensure footer stays at bottom */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+/* Let the main content take up all available space */
+.company-table-container {
+  flex: 1; /* push footer to bottom */
+}
+
+/* Footer styling */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: #1c448e; /* or your brand color */
+  color: white;
+  font-size: 14px;
+  border-top: 2px solid #e0e0e0;
+  border-radius: 0 0 8px 8px;
+}

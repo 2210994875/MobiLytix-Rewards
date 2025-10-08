@@ -1,14 +1,29 @@
-.sidebar {
+/* .sidebar {
   background: linear-gradient(180deg, #1C448E, #938BA1);
   color: #F4FDFF;
-  min-height: 100vh;   /* ✅ this is good, but it just stretches within parent */
+  min-height: 18vh;   
   width: 250px;
   display: flex;
   flex-direction: column;
   padding: 20px;
-}
+} */
 
-
+/* .sidebar {
+  position: fixed;                    /* 🧱 Keeps sidebar fixed on the left */
+  /* top: 0;
+  left: 0;
+  height: 100vh;                      /* ✅ Full height always */
+  /* width: 250px;
+  background: linear-gradient(180deg, #1C448E, #938BA1);
+  color: #F4FDFF;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;                   /* allows internal scroll if content exceeds screen */
+  /* box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;                      /* keeps it above the form content */
+/* }  */
+/* 
 .sidebar .logo {
   font-size: 1.5rem;
   font-weight: bold;
@@ -90,4 +105,180 @@
 
 .icon {
   min-width: 20px;
+}
+.sidebar-logo img {
+  width: 120px;         /* 🔹 smaller width */
+  /* height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;       /* center horizontally */
+  /* filter: brightness(0) invert(1); /* optional: makes logo white-ish for dark bg */
+/* }  */
+
+.sidebar {
+  position: sticky;                  /* ✅ stays visible while scrolling */
+  top: 0;
+  left: 0;
+  height: 185vh;                     /* full height of viewport */
+  width: 250px;
+  background: linear-gradient(180deg, #1C448E, #938BA1);
+  color: #F4FDFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px;
+  overflow-y: auto;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+}
+
+/* .sidebar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #F4FDFF;
+  margin-bottom: 2rem;
+  text-align: center;
+} */
+
+.sidebar-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  margin-top: 10px;
+}
+
+/* .sidebar-logo img {
+  width: 130px;            /* adjust as needed */
+  /* height: auto;
+  object-fit: contain;
+  display: block;
+} */ */
+
+
+
+.sidebar a {
+  color: #F4FDFF;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  margin-bottom: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.sidebar a:hover {
+  background: #F4FDFF;
+  color: #1C448E;
+  font-weight: 600;
+}
+
+.sidebar a.active {
+  background: #F4FDFF;
+  color: #1C448E;
+  font-weight: 600;
+  border-left: 4px solid #938BA1;
+}
+
+.sidebar-user {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.user-avatar {
+  width: 70px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+/* .sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  gap: 10px;
+}
+
+.sidebar-menu li a {
+  color: #F4FDFF;
+  font-weight: 500;
+}
+
+.sidebar-menu li:hover {
+  background: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+
+.sidebar-menu li.active {
+  background: #F4FDFF;
+  color: #1C448E;
+}
+
+.sidebar-menu li.active a {
+  color: #1C448E;
+} */
+ .sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  display: flex;
+  align-items: center;
+  padding: 14px 22px;        /* ⬆️ more padding for bigger height */
+  gap: 12px;                 /* space between icon and text */
+  border-radius: 8px;        /* smooth corners */
+  transition: background 0.3s, transform 0.2s;
+}
+
+.sidebar-menu li:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);  /* subtle hover shift */
+  cursor: pointer;
+}
+
+.sidebar-menu li a {
+  color: #F4FDFF;
+  font-weight: 900;          /* bolder text */
+  font-size: 17px;           /* ⬆️ larger text size */
+  text-decoration: none;
+  flex-grow: 1;              /* makes clickable area full width */
+}
+
+.sidebar-menu li.active {
+  background: #F4FDFF;
+  color: #1C448E;
+  font-weight: 700;
+}
+
+.sidebar-menu li.active a {
+  color: #1C448E;
+}
+
+
+.icon {
+  font-size: 20px;           /* ⬆️ slightly larger icons */
+}
+
+
+.sidebar-logo img {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto 20px auto;
+  
+}
+
+/* make main content align correctly beside sidebar */
+.main-content {
+  margin-left: 250px;
+  padding: 20px;
+  background: #f9f9fb;
+  min-height: 100vh;
 }

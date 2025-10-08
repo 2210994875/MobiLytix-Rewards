@@ -1,4 +1,8 @@
 import React from "react";
+import logo from "../assets/Mahindra-comviva.png";
+
+ 
+import "./Sidebar.css";  
 import { Link, useLocation } from "react-router-dom";
 import {
   FaTachometerAlt,
@@ -9,7 +13,7 @@ import {
   FaSignOutAlt,
   FaLock,
 } from "react-icons/fa";
-import "./Sidebar.css"; // import CSS file
+
 
 export default function Sidebar() {
   const location = useLocation(); // for active link
@@ -17,7 +21,10 @@ export default function Sidebar() {
   return (
     <div className="sidebar">
       {/* Logo / Title */}
-      <h2 className="sidebar-title">COMVIVA</h2>
+     <div className="sidebar-logo">
+  <img src={logo} alt="Mahindra Comviva Logo" />
+</div>
+
 
       {/* User Section */}
       <div className="sidebar-user">

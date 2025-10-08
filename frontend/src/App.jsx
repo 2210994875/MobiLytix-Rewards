@@ -6,6 +6,8 @@ import CompanyProfile from "./pages/CompanyProfile";
 import CompanyProfileForm from "./pages/CompanyProfileForm";  // ✅ import the form
 import Sidebar from "./components/Sidebar";
 import LanguageSettings from "./pages/LanguageSettings";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 
 

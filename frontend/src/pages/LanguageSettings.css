@@ -508,3 +508,51 @@
   }
 }
 
+/* 🎨 Action Buttons Container */
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* Common Button Styles */
+.action-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* ✏️ Edit button */
+.action-btn.edit {
+  background-color: #007bff;
+}
+
+.action-btn.edit:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* 🗑️ Delete button */
+.action-btn.delete {
+  background-color: #dc3545;
+}
+
+.action-btn.delete:hover {
+  background-color: #b21f2d;
+  transform: scale(1.05);
+}
+
+/* Icon size */
+.action-btn i {
+  font-size: 14px;
+}

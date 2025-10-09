@@ -198,8 +198,8 @@ label[data-required]::after {
 
 /* Language Card */
 .lang-card {
-  background: linear-gradient(135deg, #1f2937, #374151, #111827); 
-  /* background: white; */
+  /* background: linear-gradient(135deg, #1f2937, #374151, #111827);  */
+  background: lightgrey;
   color: #fff;
   border-radius: 20px;
   padding: 30px;

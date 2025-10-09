@@ -6,7 +6,7 @@
   left: 250px; /* offset for sidebar */
   right: 0;
   height: 70px;
-  background: #ffffff;
+ background: #f6f7f8;
   border-bottom: 1px solid #e6e9ef;
   display: flex;
   justify-content: space-between;
@@ -16,6 +16,7 @@
   font-family: "Poppins", sans-serif;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  
 }
 
 /* ===== Left Section ===== */
@@ -25,11 +26,19 @@
 }
 
 .header-title {
-  color: #1c448e;
   font-size: 18px;
   font-weight: 600;
   margin: 0;
+
+  /* 🖤 Gradient Black Text Effect */
+  text-transform: capitalize;
+  background: linear-gradient(90deg, #000, #555);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  letter-spacing: 0.3px;
 }
+
 
 .header-subtitle {
   color: #667085;
@@ -46,7 +55,7 @@
 
 /* Documentation Info Button */
 .info-button {
-  background: #1c448e;
+  background: black;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -80,4 +89,8 @@
   .app-header {
     padding: 0 20px;
   }
+}
+
+section {
+  margin-bottom: 80px;
 }

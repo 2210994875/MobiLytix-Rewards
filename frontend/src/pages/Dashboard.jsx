@@ -107,7 +107,7 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <button className="info-btn" onClick={handleDownload}>i</button>
+      {/* <button className="info-btn" onClick={handleDownload}>i</button> */}
 
       <header className="dashboard-header">
         <h1>Innovating Tomorrow with Connected Technology</h1>

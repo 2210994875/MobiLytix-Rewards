@@ -1,266 +1,150 @@
-/* .dashboard-container {
-  position: relative;
-  padding: 40px;
-  background: #f9fafc;
-  min-height: 100vh;
-  font-family: "Poppins", sans-serif;
-}
-
-/* Small circular info button (top right corner) */
-/* .info-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  border: none;
-  background-color: #1c448e;
-  color: #fff;
-  font-weight: bold;
-  font-size: 18px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.info-btn:hover {
-  background-color: #153670;
-  transform: scale(1.1);
-} */
-
-/* Header section */
-/* .dashboard-header {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-.dashboard-header h1 {
-  color: #1c448e;
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-
-.dashboard-subtitle {
-  color: #555;
-  font-style: italic;
-  font-size: 1.05rem;
-} */
-
-/* Stats cards layout */
-/* .stats-grid {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-}
-
-.stat-card {
-  flex: 1;
-  min-width: 280px;
-  max-width: 350px;
-  padding: 40px 25px;
-  border-radius: 18px;
-  color: white;
-  text-align: center;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
-}
-
-.stat-icon {
-  font-size: 3rem;
-  margin-bottom: 10px;
-}
-
-.stat-card h2 {
-  font-size: 2.4rem;
-  margin: 0;
-  font-weight: bold;
-}
-
-.stat-card p {
-  margin-top: 8px;
-  font-size: 1.1rem;
-} */
-
-/* Gradient backgrounds */
-/* .gradient-blue {
-  background: linear-gradient(135deg, #1c448e, #4a6cf7);
-}
-
-.gradient-green {
-  background: linear-gradient(135deg, #16a085, #2ecc71);
-} */
-
-/* Quote banner */
-/* .quote-banner {
-  text-align: center;
-  background: linear-gradient(135deg, #1c448e, #938ba1);
-  color: white;
-  padding: 25px;
-  border-radius: 14px;
-  font-style: italic;
-  font-size: 1.15rem;
-  letter-spacing: 0.5px;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
-}  */
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 
 .dashboard-container {
-  background: #f8f9fa;
-  color: #2e2e2e;
+  background: #fafafa; /* softer white than pure white */
+  color: #1a1a1a;
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
   padding: 60px 40px;
 }
 
-/* Fade in animation */
+/* Subtle fade animation for smooth entry */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Header */
+/* Header section */
 .dashboard-header {
   text-align: center;
-  margin-bottom: 70px;
+  margin-bottom: 60px;
   animation: fadeIn 0.8s ease-in-out;
 }
 
 .dashboard-header h1 {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-weight: 600;
-  color: #1c448e;
+  color: #111; /* strong black headline */
   margin-bottom: 10px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .dashboard-subtitle {
   font-size: 1.05rem;
-  color: #6c757d;
+  color: #555;
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.7;
 }
 
-/* Stats grid */
+/* Statistics section */
 .stats-grid {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 70px;
-  animation: fadeIn 1.2s ease-in-out;
+  gap: 35px;
+  margin-bottom: 60px;
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Stat cards */
+/* Cards */
 .stat-card {
-  flex: 1;
-  min-width: 320px;
-  max-width: 400px;
-  background: #ffffff;
+  flex: 1;  
+  min-width: 300px;
+  max-width: 380px;
+  background: silver;
   border-radius: 14px;
-  padding: 50px 40px;
+  padding: 45px 35px;
   text-align: center;
-  border: 1px solid #e3e6ea;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid #eee;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
 }
 
-/* Icons + text */
+/* Icons and Text */
 .stat-icon {
   font-size: 3rem;
-  margin-bottom: 20px;
-  color: #1c448e;
+  margin-bottom: 18px;
+  color: orangered;
 }
 
 .stat-card h2 {
-  font-size: 2.6rem;
+  font-size: 2.4rem;
   font-weight: 600;
-  color: #1f2937;
-  margin: 5px 0;
+  color: #111;
+  margin: 8px 0;
 }
 
 .stat-card p {
-  font-size: 1.05rem;
-  color: #495057;
+  font-size: 1rem;
+  color: black;
   margin: 0;
 }
 
-/* Info button */
+/* Info (help) button */
 .info-btn {
   position: absolute;
   top: 25px;
   right: 25px;
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
-  background: #1c448e;
+  background: #1a1a1a;
   color: #fff;
   font-weight: bold;
   font-size: 18px;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(28, 68, 142, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
 }
 
 .info-btn:hover {
-  background: #163774;
+  background: #333;
   transform: scale(1.08);
 }
 
-/* Overview */
+/* Overview Section */
 .overview-section {
   max-width: 1000px;
   margin: 0 auto 80px;
-  background: #ffffff;
+  background: #fff;
   border-radius: 14px;
   padding: 60px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-  border-left: 6px solid #1c448e;
-  animation: fadeIn 1.5s ease-in-out;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+  border-left: 6px solid #111;
+  animation: fadeIn 1.4s ease-in-out;
 }
 
 .overview-section h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  color: #1c448e;
-  margin-bottom: 20px;
+  color: #000;
+  margin-bottom: 18px;
 }
 
 .overview-section p {
   font-size: 1rem;
-  color: #4a4a4a;
+  color: #444;
   line-height: 1.8;
   margin-bottom: 15px;
 }
 
-/* Quote footer */
+/* Quote banner */
 .quote-banner {
   text-align: center;
-  background: linear-gradient(135deg, #1c448e, #284b8a);
-  color: #fff;
+  background: linear-gradient(135deg, #111, #222);
+  color: #ffffff;
   padding: 25px 30px;
   border-radius: 12px;
   font-style: italic;
   font-size: 1.05rem;
   letter-spacing: 0.4px;
-  box-shadow: 0 8px 18px rgba(28, 68, 142, 0.3);
-  animation: fadeIn 2s ease-in-out;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1.8s ease-in-out;
 }

@@ -1280,8 +1280,6 @@ useEffect(() => {
 const validate = (f) => {
   const e = {};
   const t = messages[activeLang]?.errors || messages.en.errors;
-  const langCode = activeLang.toLowerCase(); // e.g., 'en', 'fr', 'ar'
-  const langData = f.languages?.[langCode] || {};
 
   // 🔹 Helper function
   const has = (val) => val && val.trim() !== "";
@@ -1289,49 +1287,40 @@ const validate = (f) => {
   // 🌍 Global fields
   if (!has(f.company_id)) e.company_id = t.company_id;
 
-  // // ✅ Company name must exist in at least one language
-  // const hasCompanyName = Object.values(f.languages || {}).some(
-  //   (lang) => has(lang.company)
-  // );
-  // if (!hasCompanyName)
-  //   e.company_name = t.company_name_required || "Company name is required";
+  // ✅ Company Name – required in at least one language
+  const hasCompany = Object.values(f.languages || {}).some(
+    (lang) => lang.company && lang.company.trim() !== ""
+  );
+  if (!hasCompany)
+   e.company = t.company_name || messages.en.errors.company_name;
 
-// ✅ Company Name – required in at least one language
-// ✅ Company Name – required in at least one language
-const hasCompanyName = Object.values(f.languages || {}).some(
-  (lang) => lang.company_name && lang.company_name.trim() !== ""
-);
-if (!hasCompanyName)
-  e.company_name = t.company_name_required || `${t.company_name || "Company Name"}`;
+  // ✅ Description – required in at least one language
+  const hasDesc = Object.values(f.languages || {}).some(
+    (lang) => lang.desc && lang.desc.trim() !== ""
+  );
+  if (!hasDesc)
+   e.description = t.description || messages.en.errors.description;
 
-// ✅ Description – required in at least one language
-const hasDescription = Object.values(f.languages || {}).some(
-  (lang) => lang.description && lang.description.trim() !== ""
-);
-if (!hasDescription)
-  e.description = t.description_required || `${t.description || "Description"}`;
+  // ✅ Address – required in at least one language
+  const hasAddress = Object.values(f.languages || {}).some(
+    (lang) => lang.address && lang.address.trim() !== ""
+  );
+  if (!hasAddress)
+   e.address = t.address || messages.en.errors.address;
 
-// ✅ Address – required in at least one language
-const hasAddress = Object.values(f.languages || {}).some(
-  (lang) => lang.address && lang.address.trim() !== ""
-);
-if (!hasAddress)
-  e.address = t.address_required || `${t.address || "Address"}`;
-
-// ✅ Owner – required in at least one language
-const hasOwner = Object.values(f.languages || {}).some(
-  (lang) => lang.owner && lang.owner.trim() !== ""
-);
-if (!hasOwner)
-  e.owner = t.owner_required || `${t.owner || "Owner"}`;
-
+  // ✅ Owner – required in at least one language
+  const hasOwner = Object.values(f.languages || {}).some(
+    (lang) => lang.owner && lang.owner.trim() !== ""
+  );
+  if (!hasOwner)
+   e.owner = t.owner || messages.en.errors.owner;
 
   // ✉️ Email validation
   const emailRx = /\S+@\S+\.\S+/;
   if (!emailRx.test(f.email)) e.email = t.email || "Enter a valid email.";
 
-  // 📞 Mobile validation (8–15 digits)
-  if (!/^\d{8,15}$/.test(String(f.mobile || "")))
+  // 📞 Mobile validation (+, - and numbers only)
+  if (!/^[0-9+-]{6,15}$/.test(String(f.mobile || "")))
     e.mobile = t.mobile || "Enter a valid mobile number.";
 
   // 💸 Discount validation
@@ -1348,7 +1337,6 @@ if (!hasOwner)
 
   return e;
 };
-
 
 
 // const handleChange = (e, lang = null) => {
@@ -1622,15 +1610,15 @@ const handleFieldChange = (e, langCode = null) => {
     {messages[activeLang]?.labels?.welcome || messages.en.labels.welcome}
   </h3>
 
-  {["company_name", "description", "address", "owner"].map((field) => (
+  {["company", "desc", "address", "owner"].map((field) => (
     <div className="field" key={field}>
       <label>
-        {messages[activeLang]?.labels?.[field] ||
-          messages.en.labels[field]}
+        {messages[activeLang]?.labels?.[field === "desc" ? "description" : field] ||
+          messages.en.labels[field === "desc" ? "description" : field]}
         <span className="required">*</span>
       </label>
 
-      {field === "description" || field === "address" ? (
+      {field === "desc" || field === "address" ? (
         <textarea
           name={field}
           rows="3"
@@ -1645,11 +1633,15 @@ const handleFieldChange = (e, langCode = null) => {
         />
       )}
 
-      {/* ✅ Display validation errors for all language fields */}
-      {errors[field] && <p className="error">{errors[field]}</p>}
+      {errors[field === "desc" ? "description" : field] && (
+        <p className="error">
+          {errors[field === "desc" ? "description" : field]}
+        </p>
+      )}
     </div>
   ))}
 </div>
+
 
 
 {/* 🌍 Global Fields Section */}

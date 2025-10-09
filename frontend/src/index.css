@@ -7,3 +7,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+.main-content {
+  margin-left: 250px;   /* ✅ pushes it beside the sidebar */
+  padding: 20px;
+  min-height: 100vh;
+  background: #f9f9fb;
+  overflow-y: auto;     /* ✅ content can scroll independently */
+}

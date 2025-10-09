@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+
+.app-header {
+  position: fixed;
+  top: 0;
+  left: 250px; /* offset for sidebar */
+  right: 0;
+  height: 70px;
+  background: #ffffff;
+  border-bottom: 1px solid #e6e9ef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 100;
+  font-family: "Poppins", sans-serif;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* ===== Left Section ===== */
+.header-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  color: #1c448e;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.header-subtitle {
+  color: #667085;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+/* ===== Right Section ===== */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Documentation Info Button */
+.info-button {
+  background: #1c448e;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(28, 68, 142, 0.2);
+}
+
+.info-button:hover {
+  background: #153670;
+  transform: scale(1.08);
+}
+
+.info-icon {
+  font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .header-title {
+    font-size: 16px;
+  }
+  .header-subtitle {
+    display: none;
+  }
+  .app-header {
+    padding: 0 20px;
+  }
+}

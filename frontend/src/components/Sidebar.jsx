@@ -1,65 +1,79 @@
 import React from "react";
-import logo from "../assets/Mahindra-comviva.png";
-
- 
-import "./Sidebar.css";  
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/Mahindra-comviva.png";
 import {
   FaTachometerAlt,
-  FaTags,
-  FaGift,
   FaUser,
-  FaFileInvoiceDollar,
+  FaLanguage,
   FaSignOutAlt,
-  FaLock,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
-
+import "./Sidebar.css";
 
 export default function Sidebar() {
-  const location = useLocation(); // for active link
+  const location = useLocation();
 
   return (
     <div className="sidebar">
-      {/* Logo / Title */}
-     <div className="sidebar-logo">
-  <img src={logo} alt="Mahindra Comviva Logo" />
-</div>
-
-
-      {/* User Section */}
-      <div className="sidebar-user">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          alt="profile"
-          className="user-avatar"
-        />
-        <p>
-          Welcome, <b>Tapas</b>
-        </p>
-        <FaLock />
+      {/* ===== Logo ===== */}
+      <div className="sidebar-logo">
+        <img src={logo} alt="Comviva Logo" />
       </div>
 
-      {/* Menu */}
+      {/* ===== Navigation Menu ===== */}
       <ul className="sidebar-menu">
         <li className={location.pathname === "/" ? "active" : ""}>
-          <FaTachometerAlt className="icon" />
-          <Link to="/">Dashboard</Link>
+          <Link to="/">
+            <FaTachometerAlt className="icon" />
+            <span>Dashboard</span>
+          </Link>
         </li>
         <li className={location.pathname === "/company-profile" ? "active" : ""}>
-          <FaUser className="icon" />
-          <Link to="/company-profile">Company Profile</Link>
+          <Link to="/company-profile">
+            <FaUser className="icon" />
+            <span>Company Profile</span>
+          </Link>
         </li>
-      <li className={location.pathname === "/language" ? "active" : ""}>
-  <FaFileInvoiceDollar className="icon" />
-  <Link to="/language">Language settings</Link>
-</li>
-
-  
-        <li>
-          <FaSignOutAlt className="icon" />
-          <Link to="/logout">Sign Out</Link>
+        <li className={location.pathname === "/language" ? "active" : ""}>
+          <Link to="/language">
+            <FaLanguage className="icon" />
+            <span>Language Settings</span>
+          </Link>
         </li>
       </ul>
+
+      {/* ===== Divider ===== */}
+      <div className="sidebar-divider"></div>
+
+      {/* ===== Company Info Section ===== */}
+      <div className="sidebar-footer">
+        <h4>Comviva</h4>
+        <p className="company-tagline">
+          Innovating Tomorrow with Connected Technology
+        </p>
+
+        <div className="contact-info">
+          <p>
+            <FaMapMarkerAlt className="contact-icon" />
+            <span>Tech Mahindra, Gurgaon</span>
+          </p>
+          <p>
+            <FaEnvelope className="contact-icon" />
+            <a href="mailto:info@comviva.com">info@comviva.com</a>
+          </p>
+          <p>
+            <FaPhoneAlt className="contact-icon" />
+            <a href="tel:+911244200000">+91 124 420 0000</a>
+          </p>
+        </div>
+
+        {/* <button className="logout-btn">
+          <FaSignOutAlt className="logout-icon" />
+          <span>Logout</span>
+        </button> */}
+      </div>
     </div>
   );
 }

@@ -1,14 +1,87 @@
+// import React, { useEffect, useState } from "react";
+// import "./Dashboard.css";
+// import { FaBuilding, FaLanguage } from "react-icons/fa";
+
+// export default function Dashboard() {
+//   const [stats, setStats] = useState({
+//     activeCompanies: 0,
+//     totalLanguages: 0,
+//   });
+
+//   // 🧠 Fetch data from backend
+//   useEffect(() => {
+//     const fetchStats = async () => {
+//       try {
+//         const res = await fetch("http://localhost:5000/api/dashboard/stats");
+//         const data = await res.json();
+//         setStats({
+//           activeCompanies: data.activeCompanies || 0,
+//           totalLanguages: data.totalLanguages || 0,
+//         });
+//       } catch (err) {
+//         console.error("❌ Error fetching dashboard stats:", err);
+//       }
+//     };
+
+//     fetchStats();
+//   }, []);
+
+//   // 📘 Download Documentation
+//   const handleDownload = () => {
+//     const link = document.createElement("a");
+//     link.href = "/docs/website-documentation.pdf";
+//     link.download = "website-documentation.pdf";
+//     link.click();
+//   };
+
+//   return (
+//     <div className="dashboard-container">
+//       {/* Info button */}
+//       <button
+//         className="info-btn"
+//         onClick={handleDownload}
+//         title="Download Website Documentation"
+//       >
+//         i
+//       </button>
+
+//       <div className="dashboard-header">
+//         <h1>Welcome to Dashboard</h1>
+//         <p className="dashboard-subtitle">
+//           Empowering businesses through insight and innovation.
+//         </p>
+//       </div>
+
+//       {/* Stats section */}
+//       <div className="stats-grid">
+//         <div className="stat-card gradient-blue">
+//           <FaBuilding className="stat-icon" />
+//           <h2>{stats.activeCompanies}</h2>
+//           <p>Active Companies</p>
+//         </div>
+
+//         <div className="stat-card gradient-green">
+//           <FaLanguage className="stat-icon" />
+//           <h2>{stats.totalLanguages}</h2>
+//           <p>Supported Languages</p>
+//         </div>
+//       </div>
+
+//       <div className="quote-banner">
+//         <p>“Data drives decisions, and decisions drive success.”</p>
+//       </div>
+//     </div>
+//   );
+// }
+
+
 import React, { useEffect, useState } from "react";
 import "./Dashboard.css";
 import { FaBuilding, FaLanguage } from "react-icons/fa";
 
 export default function Dashboard() {
-  const [stats, setStats] = useState({
-    activeCompanies: 0,
-    totalLanguages: 0,
-  });
+  const [stats, setStats] = useState({ activeCompanies: 0, totalLanguages: 0 });
 
-  // 🧠 Fetch data from backend
   useEffect(() => {
     const fetchStats = async () => {
       try {
@@ -22,11 +95,9 @@ export default function Dashboard() {
         console.error("❌ Error fetching dashboard stats:", err);
       }
     };
-
     fetchStats();
   }, []);
 
-  // 📘 Download Documentation
   const handleDownload = () => {
     const link = document.createElement("a");
     link.href = "/docs/website-documentation.pdf";
@@ -36,40 +107,45 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      {/* Info button */}
-      <button
-        className="info-btn"
-        onClick={handleDownload}
-        title="Download Website Documentation"
-      >
-        i
-      </button>
+      <button className="info-btn" onClick={handleDownload}>i</button>
 
-      <div className="dashboard-header">
-        <h1>Welcome to Dashboard</h1>
+      <header className="dashboard-header">
+        <h1>Innovating Tomorrow with Connected Technology</h1>
         <p className="dashboard-subtitle">
-          Empowering businesses through insight and innovation.
+          A platform that simplifies global connectivity, enabling enterprises to manage, scale,
+          and evolve through smart, sustainable solutions.
         </p>
-      </div>
+      </header>
 
-      {/* Stats section */}
-      <div className="stats-grid">
-        <div className="stat-card gradient-blue">
+      <section className="stats-grid">
+        <div className="stat-card">
           <FaBuilding className="stat-icon" />
           <h2>{stats.activeCompanies}</h2>
           <p>Active Companies</p>
         </div>
-
-        <div className="stat-card gradient-green">
+        <div className="stat-card">
           <FaLanguage className="stat-icon" />
           <h2>{stats.totalLanguages}</h2>
           <p>Supported Languages</p>
         </div>
-      </div>
+      </section>
 
-      <div className="quote-banner">
-        <p>“Data drives decisions, and decisions drive success.”</p>
-      </div>
+      <section className="overview-section">
+        <h2>Overview</h2>
+        <p>
+          Our Dashboard is designed to deliver an intuitive, data-driven experience for organizations
+          to monitor and manage multilingual company information efficiently. Through automation and
+          clean design, it ensures productivity and clarity.
+        </p>
+        <p>
+          Built for scalability, transparency, and ease of use, it brings real-time insights into business
+          performance while maintaining simplicity and elegance in every interaction.
+        </p>
+      </section>
+
+      <footer className="quote-banner">
+        “Technology that connects people should also connect purpose.”
+      </footer>
     </div>
   );
 }

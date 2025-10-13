@@ -89,8 +89,8 @@
   border-bottom: 1px solid #eee;
 }
 
-.language-table th {
-  background: linear-gradient(90deg, #007bff, #0056b3);
+.language-table th {  
+  background: linear-gradient(90 deg, lightgrey);
   color: white;
   font-weight: bold;
   text-transform: uppercase;
@@ -286,8 +286,8 @@
 }
 
 .language-table th {
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  color: white;
+  background: linear-gradient(90deg, lightgray);
+  color: black;
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -342,15 +342,24 @@
 }
 
 .btn.outline {
-  background: transparent;
-  border: 2px solid #0071e3;
-  color: #0071e3;
+  background: #ed1c24; /* Comviva Red */
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  border-radius: 40px;
+  padding: 12px 28px;
+  box-shadow: 0 4px 12px rgba(237, 28, 36, 0.3);
+  transition: all 0.3s ease;
 }
 
 .btn.outline:hover {
-  background: #0071e3;
-  color: #fff;
+  background: #c8101a; /* darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(200, 16, 26, 0.4);
 }
+
 
 /* Table */
 .existing-languages {
@@ -375,8 +384,8 @@
 }
 
 .language-table th {
-   background: linear-gradient(90deg, #46597d);
-  color: white;
+   background: linear-gradient(90deg, lightgrey);
+  color: black;
   font-weight: bold;
   text-transform: uppercase;
 }

@@ -1,16 +1,14 @@
-
-
 // import React, { useState, useEffect } from "react";
 // import "./LanguageSettings.css";
 
 // export default function LanguageSettings() {
 //   const [showDropdown, setShowDropdown] = useState(false);
 //   const [selectedLanguage, setSelectedLanguage] = useState("");
-//   const [addedLangs, setAddedLangs] = useState([]); // 🆕 To remember what was added
-// //   const [showModal, setShowModal] = useState(false);
-// //   const [description, setDescription] = useState({ en: "", local: "" });
-
-//   const [languagesData, setLanguagesData] = useState([]); // ✅ DB languages
+//   const [addedLangs, setAddedLangs] = useState([]);
+//   const [languagesData, setLanguagesData] = useState([]);
+//   const [showModal, setShowModal] = useState(false);
+//   const [editMode, setEditMode] = useState(false);
+//   const [description, setDescription] = useState({ en: "", local: "" });
 
 //   const staticLanguages = [
 //     "Spanish",
@@ -22,219 +20,143 @@
 //     "Portuguese",
 //   ];
 
-//   // ✅ Fetch languages from backend
-// // const BASE_LANGS = ["EN", "AR", "FR"];
+//   const BASE_LANGS = ["EN", "FR", "AR"];
 
-// // const fetchLanguages = async () => {
-// //   try {
-// //     const res = await fetch("http://localhost:5000/api/languages");
-// //     const data = await res.json();
-
-// //     // filter only base 3
-// //     const filtered = data.filter((lang) => BASE_LANGS.includes(lang.lang_id));
-// //     setLanguagesData(filtered);
-// //   } catch (error) {
-// //     console.error("❌ Error fetching languages:", error);
-// //   }
-// // };
-
-// const BASE_LANGS = ["EN", "FR", "AR"];
-
-// const fetchLanguages = async (activeAddedLangs = []) => {
-//   try {
-//     const res = await fetch("http://localhost:5000/api/languages");
-//     const data = await res.json();
-
-//     // ✅ Always show base + added
-//     const filtered = data.filter(
-//       (lang) => BASE_LANGS.includes(lang.lang_id) || activeAddedLangs.includes(lang.lang_id)
-//     );
-//     setLanguagesData(filtered);
-//   } catch (error) {
-//     console.error("❌ Error fetching languages:", error);
-//   }
-// };
-
-// // 🧠 Load addedLangs from localStorage first
-// useEffect(() => {
-//   const saved = localStorage.getItem("addedLangs");
-//   if (saved) {
-//     const parsed = JSON.parse(saved);
-//     setAddedLangs(parsed);
-//     fetchLanguages(parsed); // fetch after restoring saved languages
-//   } else {
-//     fetchLanguages([]); // just base 3
-//   }
-// }, []);
-
-// // 💾 Save new addedLangs to localStorage and refetch whenever it changes
-// useEffect(() => {
-//   localStorage.setItem("addedLangs", JSON.stringify(addedLangs));
-//   fetchLanguages(addedLangs);
-// }, [addedLangs]);
-
-
-//   const handleAddLanguageClick = () => {
-//     setShowDropdown(!showDropdown);
+//   // ✅ Fetch all base + added languages
+//   const fetchLanguages = async (activeAddedLangs = []) => {
+//     try {
+//       const res = await fetch("http://localhost:5000/api/languages");
+//       const data = await res.json();
+//       const filtered = data.filter(
+//         (lang) => BASE_LANGS.includes(lang.lang_id) || activeAddedLangs.includes(lang.lang_id)
+//       );
+//       setLanguagesData(filtered);
+//     } catch (error) {
+//       console.error("❌ Error fetching languages:", error);
+//     }
 //   };
-// // const handleLanguageSelect = async (lang) => {
-// //   const langId = lang.substring(0, 2).toUpperCase();
 
-// //   try {
-// //     const res = await fetch(`http://localhost:5000/api/languages/${langId}`);
-// //     const response = await res.json();
+//   // 🧠 Load addedLangs from localStorage
+//   useEffect(() => {
+//     const saved = localStorage.getItem("addedLangs");
+//     if (saved) {
+//       const parsed = JSON.parse(saved);
+//       setAddedLangs(parsed);
+//       fetchLanguages(parsed);
+//     } else {
+//       fetchLanguages([]);
+//     }
+//   }, []);
 
-// //     if (response.success || response.data) {
-// //       // Extract language data from response
-// //       const languageData = response.data || response;
-      
-// //       setLanguagesData((prev) => {
-// //         // Check if language already exists
-// //         if (prev.find((l) => l.lang_id === langId)) {
-// //           return prev;
-// //         }
-        
-// //         // Add new language with proper structure
-// //         const newLanguage = {
-// //           lang_id: langId,
-// //           lang_name: lang,
-// //           lang_description_en: languageData.lang_description_en || "",
-// //           lang_description_local: languageData.lang_description_local || ""
-// //         };
-        
-// //         return [...prev, newLanguage];
-// //       });
+//   // 💾 Persist changes
+//   useEffect(() => {
+//     localStorage.setItem("addedLangs", JSON.stringify(addedLangs));
+//     fetchLanguages(addedLangs);
+//   }, [addedLangs]);
 
-// //       setShowDropdown(false);
-// //       setSelectedLanguage(lang);
-// //     } else {
-// //       console.error("Failed to fetch language:", response.error);
-// //       alert(response.error || "Failed to fetch language details");
-// //     }
-// //   } catch (err) {
-// //     console.error("❌ Error fetching language:", err);
-// //     alert("Failed to fetch language details. Please try again.");
-// //   }
-// // };
+//   const handleAddLanguageClick = () => setShowDropdown(!showDropdown);
 
+//   // ✅ Add language
+//   // ✅ Add language (create if not found)
 // const handleLanguageSelect = async (lang) => {
-//   const langId = lang.substring(0, 2).toUpperCase();
+//   const langId = lang.slice(0, 2).toUpperCase().trim(); // e.g. "Spanish" → "SP"
 
 //   try {
 //     const res = await fetch(`http://localhost:5000/api/languages/${langId}`);
 //     const response = await res.json();
 
-//     if (response.success || response.data) {
-//       const languageData = response.data || response;
+//     if (res.ok && response.data) {
+//       const languageData = response.data;
 
-//       // ✅ Update both state lists
+//       // ✅ Add only if not already displayed
 //       setAddedLangs((prev) => [...new Set([...prev, langId])]);
 //       setLanguagesData((prev) => {
-//         if (prev.find((l) => l.lang_id === langId)) return prev;
-
-//         const newLanguage = {
-//           lang_id: langId,
-//           lang_name: lang,
-//           lang_description_en: languageData.lang_description_en || "",
-//           lang_description_local: languageData.lang_description_local || "",
-//         };
-//         return [...prev, newLanguage];
+//         if (prev.find((l) => l.lang_id === langId)) return prev; // already there
+//         return [...prev, languageData];
 //       });
 
 //       setShowDropdown(false);
 //       setSelectedLanguage(lang);
 //     } else {
-//       console.error("Failed to fetch language:", response.error);
-//       alert(response.error || "Failed to fetch language details");
+//       alert(`❌ Language ${langId} not found in database.`);
 //     }
 //   } catch (err) {
 //     console.error("❌ Error fetching language:", err);
-//     alert("Failed to fetch language details. Please try again.");
+//     alert("Failed to fetch language. Please try again.");
+//   }
+// };
+
+//   // ✅ Edit (update description)
+//   const handleEdit = (lang) => {
+//     setSelectedLanguage(lang.lang_name);
+//     setDescription({
+//       en: lang.lang_description_en || "",
+//       local: lang.lang_description_local || "",
+//     });
+//     setEditMode(true);
+//     setShowModal(true);
+//   };
+
+// const handleDelete = (langId) => {
+//   const baseLangs = ["AR", "EN", "FR"]; // protect base langs
+
+//   if (baseLangs.includes(langId)) {
+//     alert(`⚠️ ${langId} is a base language and cannot be removed.`);
+//     return;
+//   }
+
+//   if (!window.confirm("Are you sure you want to remove this language from view?")) return;
+
+//   try {
+//     setAddedLangs((prev) => prev.filter((id) => id !== langId));
+//     setLanguagesData((prev) => prev.filter((lang) => lang.lang_id !== langId));
+
+//     const updatedLangs = addedLangs.filter((id) => id !== langId);
+//     localStorage.setItem("addedLangs", JSON.stringify(updatedLangs));
+
+//     alert("✅ Language removed");
+//   } catch (error) {
+//     console.error("❌ Error removing language:", error);
+//     alert("Something went wrong while removing the language.");
 //   }
 // };
 
 
-
-// //   const handleSubmit = () => {
-// //   const langId = selectedLanguage.substring(0, 2).toUpperCase();
-
-// //   const payload = {
-// //     lang_id: langId,
-// //     lang_name: selectedLanguage,
-// //     lang_description_en: description.en,
-// //     lang_description_local: description.local,
-// //   };
-
-// //   // ✅ Add temporarily to state
-// //   setLanguagesData((prev) => [...prev, payload]);
-
-// //   // Reset modal
-// //   setShowModal(false);
-// //   setDescription({ en: "", local: "" });
-// // };
-
-// //   try {
-// //     const res = await fetch("http://localhost:5000/api/languages", {
-// //       method: "POST",
-// //       headers: { "Content-Type": "application/json" },
-// //       body: JSON.stringify(payload),
-// //     });
-
-// //     if (res.ok) {
-// //       alert("✅ Language added successfully!");
-
-// //       // ✅ Update frontend immediately
-// //       setLanguagesData((prev) => [...prev, payload]);
-
-// //       setShowModal(false);
-// //       setDescription({ en: "", local: "" });
-// //     } else {
-// //       const err = await res.json();
-// //       alert(`❌ ${err.error || "Error adding language"}`);
-// //     }
-// //   } catch (error) {
-// //     console.error("❌ Error:", error);
-// //     alert("Failed to connect to backend.");
-// //   }
-// // };
-// const handleSubmit = async () => {
-//   const langId = selectedLanguage.substring(0, 2).toUpperCase();
+//   // ✅ Save or update (shared for Add/Edit)
+//   const handleSubmit = async () => {
+//   const langId = selectedLanguage.slice(0, 2).toUpperCase();
 
 //   const payload = {
-//     lang_id: langId,
-//     lang_name: selectedLanguage,
 //     lang_description_en: description.en,
 //     lang_description_local: description.local,
 //   };
 
 //   try {
-//     const res = await fetch("http://localhost:5000/api/languages", {
-//       method: "POST", // 🔄 use UPSERT in backend
+//     const res = await fetch(`http://localhost:5000/api/languages/${langId}`, {
+//       method: "PUT", // ✅ use PUT for updates
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(payload),
 //     });
 
 //     if (res.ok) {
-//       alert("✅ Language saved/updated successfully!");
-//       // refresh data
-//       fetchLanguages();
+//       alert("✅ Language updated successfully!");
+//       fetchLanguages(addedLangs); // refresh data
 //       setShowModal(false);
+//       setEditMode(false);
 //       setDescription({ en: "", local: "" });
 //     } else {
 //       const err = await res.json();
-//       alert(`❌ ${err.error || "Error saving language"}`);
+//       alert(`❌ ${err.error || "Error updating language"}`);
 //     }
 //   } catch (error) {
-//     console.error("❌ Error:", error);
+//     console.error("❌ Error updating language:", error);
 //     alert("Failed to connect to backend.");
 //   }
 // };
 
-
-
 //   return (
 //     <div className="language-container">
-//       {/* Top Right Add Language */}
+//       {/* 🔝 Top Right Add Button */}
 //       <div className="top-header">
 //         <div className="add-language-wrapper">
 //           <button className="btn outline" onClick={handleAddLanguageClick}>
@@ -257,13 +179,13 @@
 //         </div>
 //       </div>
 
-//       {/* Page Heading */}
+//       {/* 🏷️ Page Header */}
 //       <h1 className="language-heading">Choose your language preference</h1>
 //       <p className="language-subtitle">
 //         A personalized experience begins with the language you love.
 //       </p>
 
-//       {/* ✅ Existing Languages Table */}
+//       {/* 📋 Table */}
 //       <div className="existing-languages">
 //         <table className="language-table">
 //           <thead>
@@ -272,6 +194,7 @@
 //               <th>Language Name</th>
 //               <th>Description (English)</th>
 //               <th>Description (Local)</th>
+//               <th>Actions</th>
 //             </tr>
 //           </thead>
 //           <tbody>
@@ -282,41 +205,51 @@
 //                   <td>{lang.lang_name}</td>
 //                   <td>{lang.lang_description_en}</td>
 //                   <td>{lang.lang_description_local}</td>
+//                   <td className="action-buttons">
+//   <button
+//     className="action-btn edit"
+//     title="Edit"
+//     onClick={() => handleEdit(lang)}
+//   >
+//     <i className="fas fa-edit"></i>
+//   </button>
+//   <button
+//     className="action-btn delete"
+//     title="Delete"
+//     onClick={() => handleDelete(lang.lang_id)}
+//   >
+//     <i className="fas fa-trash"></i>
+//   </button>
+// </td>
+
 //                 </tr>
 //               ))
 //             ) : (
 //               <tr>
-//                 <td colSpan="4">No languages found</td>
+//                 <td colSpan="5">No languages found</td>
 //               </tr>
 //             )}
 //           </tbody>
 //         </table>
 //       </div>
-      
 
-//       {/* Modal
+//       {/* 🪟 Modal */}
 //       {showModal && (
 //         <div className="modal">
 //           <div className="modal-content">
-//             <h2>Add {selectedLanguage}</h2>
+//             <h2>{editMode ? `Edit ${selectedLanguage}` : `Add ${selectedLanguage}`}</h2>
 
-//             {/* English description */}
-//             {/* <textarea
-//               placeholder={`Enter description in English...`}
+//             <textarea
+//               placeholder="Enter description in English..."
 //               value={description.en}
-//               onChange={(e) =>
-//                 setDescription({ ...description, en: e.target.value })
-//               }
-//             /> */}
+//               onChange={(e) => setDescription({ ...description, en: e.target.value })}
+//             />
 
-//             {/* Local description */}
-//             {/* <textarea
+//             <textarea
 //               placeholder={`Enter description in ${selectedLanguage}...`}
 //               value={description.local}
-//               onChange={(e) =>
-//                 setDescription({ ...description, local: e.target.value })
-//               } */}
-//             {/* />
+//               onChange={(e) => setDescription({ ...description, local: e.target.value })}
+//             />
 
 //             <div className="modal-actions">
 //               <button className="btn primary" onClick={handleSubmit}>
@@ -328,10 +261,11 @@
 //             </div>
 //           </div>
 //         </div>
-//       )} */}
+//       )}
 //     </div>
 //   );
 // }
+
 
 import React, { useState, useEffect } from "react";
 import "./LanguageSettings.css";
@@ -345,7 +279,9 @@ export default function LanguageSettings() {
   const [editMode, setEditMode] = useState(false);
   const [description, setDescription] = useState({ en: "", local: "" });
 
+  // 🌍 Universal languages for dropdown
   const staticLanguages = [
+    "French",
     "Spanish",
     "German",
     "Hindi",
@@ -353,9 +289,17 @@ export default function LanguageSettings() {
     "Japanese",
     "Russian",
     "Portuguese",
+    "Bengali",
+    "Urdu",
+    "Indonesian",
+    "Swahili",
+    "Turkish",
+    "Korean",
+    "Italian",
   ];
 
-  const BASE_LANGS = ["EN", "FR", "AR"];
+  // ✅ Default languages: English & Arabic only
+  const BASE_LANGS = ["EN", "AR"];
 
   // ✅ Fetch all base + added languages
   const fetchLanguages = async (activeAddedLangs = []) => {
@@ -383,7 +327,7 @@ export default function LanguageSettings() {
     }
   }, []);
 
-  // 💾 Persist changes
+  // 💾 Persist added languages to localStorage
   useEffect(() => {
     localStorage.setItem("addedLangs", JSON.stringify(addedLangs));
     fetchLanguages(addedLangs);
@@ -391,37 +335,36 @@ export default function LanguageSettings() {
 
   const handleAddLanguageClick = () => setShowDropdown(!showDropdown);
 
-  // ✅ Add language
-  // ✅ Add language (create if not found)
-const handleLanguageSelect = async (lang) => {
-  const langId = lang.slice(0, 2).toUpperCase().trim(); // e.g. "Spanish" → "SP"
+  // ✅ Add a new language
+  const handleLanguageSelect = async (lang) => {
+    const langId = lang.slice(0, 2).toUpperCase().trim(); // e.g. "Spanish" → "SP"
 
-  try {
-    const res = await fetch(`http://localhost:5000/api/languages/${langId}`);
-    const response = await res.json();
+    try {
+      const res = await fetch(`http://localhost:5000/api/languages/${langId}`);
+      const response = await res.json();
 
-    if (res.ok && response.data) {
-      const languageData = response.data;
+      if (res.ok && response.data) {
+        const languageData = response.data;
 
-      // ✅ Add only if not already displayed
-      setAddedLangs((prev) => [...new Set([...prev, langId])]);
-      setLanguagesData((prev) => {
-        if (prev.find((l) => l.lang_id === langId)) return prev; // already there
-        return [...prev, languageData];
-      });
+        // Add only if not already added
+        setAddedLangs((prev) => [...new Set([...prev, langId])]);
+        setLanguagesData((prev) => {
+          if (prev.find((l) => l.lang_id === langId)) return prev;
+          return [...prev, languageData];
+        });
 
-      setShowDropdown(false);
-      setSelectedLanguage(lang);
-    } else {
-      alert(`❌ Language ${langId} not found in database.`);
+        setShowDropdown(false);
+        setSelectedLanguage(lang);
+      } else {
+        alert(`❌ Language ${langId} not found in database.`);
+      }
+    } catch (err) {
+      console.error("❌ Error fetching language:", err);
+      alert("Failed to fetch language. Please try again.");
     }
-  } catch (err) {
-    console.error("❌ Error fetching language:", err);
-    alert("Failed to fetch language. Please try again.");
-  }
-};
+  };
 
-  // ✅ Edit (update description)
+  // ✅ Edit language
   const handleEdit = (lang) => {
     setSelectedLanguage(lang.lang_name);
     setDescription({
@@ -432,66 +375,66 @@ const handleLanguageSelect = async (lang) => {
     setShowModal(true);
   };
 
-const handleDelete = (langId) => {
-  const baseLangs = ["AR", "EN", "FR"]; // protect base langs
+  // ✅ Delete (remove from list but not DB)
+  const handleDelete = (langId) => {
+    const baseLangs = ["AR", "EN"]; // protect base langs
 
-  if (baseLangs.includes(langId)) {
-    alert(`⚠️ ${langId} is a base language and cannot be removed.`);
-    return;
-  }
+    if (baseLangs.includes(langId)) {
+      alert(`⚠️ ${langId} is a base language and cannot be removed.`);
+      return;
+    }
 
-  if (!window.confirm("Are you sure you want to remove this language from view?")) return;
+    if (!window.confirm("Are you sure you want to remove this language from view?")) return;
 
-  try {
-    setAddedLangs((prev) => prev.filter((id) => id !== langId));
-    setLanguagesData((prev) => prev.filter((lang) => lang.lang_id !== langId));
+    try {
+      setAddedLangs((prev) => prev.filter((id) => id !== langId));
+      setLanguagesData((prev) => prev.filter((lang) => lang.lang_id !== langId));
 
-    const updatedLangs = addedLangs.filter((id) => id !== langId);
-    localStorage.setItem("addedLangs", JSON.stringify(updatedLangs));
+      const updatedLangs = addedLangs.filter((id) => id !== langId);
+      localStorage.setItem("addedLangs", JSON.stringify(updatedLangs));
 
-    alert("✅ Language removed");
-  } catch (error) {
-    console.error("❌ Error removing language:", error);
-    alert("Something went wrong while removing the language.");
-  }
-};
-
-
-  // ✅ Save or update (shared for Add/Edit)
-  const handleSubmit = async () => {
-  const langId = selectedLanguage.slice(0, 2).toUpperCase();
-
-  const payload = {
-    lang_description_en: description.en,
-    lang_description_local: description.local,
+      alert("✅ Language removed");
+    } catch (error) {
+      console.error("❌ Error removing language:", error);
+      alert("Something went wrong while removing the language.");
+    }
   };
 
-  try {
-    const res = await fetch(`http://localhost:5000/api/languages/${langId}`, {
-      method: "PUT", // ✅ use PUT for updates
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+  // ✅ Save or update language
+  const handleSubmit = async () => {
+    const langId = selectedLanguage.slice(0, 2).toUpperCase();
 
-    if (res.ok) {
-      alert("✅ Language updated successfully!");
-      fetchLanguages(addedLangs); // refresh data
-      setShowModal(false);
-      setEditMode(false);
-      setDescription({ en: "", local: "" });
-    } else {
-      const err = await res.json();
-      alert(`❌ ${err.error || "Error updating language"}`);
+    const payload = {
+      lang_description_en: description.en,
+      lang_description_local: description.local,
+    };
+
+    try {
+      const res = await fetch(`http://localhost:5000/api/languages/${langId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        alert("✅ Language updated successfully!");
+        fetchLanguages(addedLangs);
+        setShowModal(false);
+        setEditMode(false);
+        setDescription({ en: "", local: "" });
+      } else {
+        const err = await res.json();
+        alert(`❌ ${err.error || "Error updating language"}`);
+      }
+    } catch (error) {
+      console.error("❌ Error updating language:", error);
+      alert("Failed to connect to backend.");
     }
-  } catch (error) {
-    console.error("❌ Error updating language:", error);
-    alert("Failed to connect to backend.");
-  }
-};
+  };
 
   return (
     <div className="language-container">
-      {/* 🔝 Top Right Add Button */}
+      {/* 🔝 Add Language Button */}
       <div className="top-header">
         <div className="add-language-wrapper">
           <button className="btn outline" onClick={handleAddLanguageClick}>
@@ -514,7 +457,7 @@ const handleDelete = (langId) => {
         </div>
       </div>
 
-      {/* 🏷️ Page Header */}
+      {/* 🏷️ Header */}
       <h1 className="language-heading">Choose your language preference</h1>
       <p className="language-subtitle">
         A personalized experience begins with the language you love.
@@ -541,22 +484,21 @@ const handleDelete = (langId) => {
                   <td>{lang.lang_description_en}</td>
                   <td>{lang.lang_description_local}</td>
                   <td className="action-buttons">
-  <button
-    className="action-btn edit"
-    title="Edit"
-    onClick={() => handleEdit(lang)}
-  >
-    <i className="fas fa-edit"></i>
-  </button>
-  <button
-    className="action-btn delete"
-    title="Delete"
-    onClick={() => handleDelete(lang.lang_id)}
-  >
-    <i className="fas fa-trash"></i>
-  </button>
-</td>
-
+                    <button
+                      className="action-btn edit"
+                      title="Edit"
+                      onClick={() => handleEdit(lang)}
+                    >
+                      <i className="fas fa-edit"></i>
+                    </button>
+                    <button
+                      className="action-btn delete"
+                      title="Delete"
+                      onClick={() => handleDelete(lang.lang_id)}
+                    >
+                      <i className="fas fa-trash"></i>
+                    </button>
+                  </td>
                 </tr>
               ))
             ) : (

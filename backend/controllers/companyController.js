@@ -45,7 +45,7 @@ exports.createCompany = async (req, res) => {
     }
 
     // ✅ Parse and clean multilingual properties
-    if (typeof properties === "string") {
+    if (typeof properties === "string") { // converts json string to json object
       try {
         properties = JSON.parse(properties);
       } catch (err) {

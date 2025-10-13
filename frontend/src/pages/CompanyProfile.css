@@ -4,16 +4,6 @@
 } */
 
 /* Banner */
-/* .banner {
-  display: flex;
-  justify-content: flex-end; /* keeps button on right */
-  /* align-items: center;
-  padding: 20px 40px;
-  background: #000000; 
-  border-radius: 12px 12px 0 0;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
-  margin-bottom: 30px; */
-/* }  */
 
 
 /* Form Card */
@@ -398,55 +388,40 @@ label[data-required]::after {
 }
 
 .create-company-link {
-  position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  padding: 16px 32px;              /* bigger box */
-  font-size: 16px;                 /* larger text */
-  font-weight: 700;                /* bold text */
-  color: #1c448e;                 /* blue text */
-  background-color: #fff;          /* white background */
+  padding: 12px 28px;
+  background-color: #e50914; /* 🔴 Comviva-style red */
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
   text-decoration: none;
-  border: 2.5px solid #1c448e;     /* solid blue border */
-  border-radius: 8px;
+  border: none;
+  border-radius: 40px; /* fully rounded pill shape */
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(229, 9, 20, 0.25);
   transition: all 0.3s ease;
-  overflow: hidden;
-
-  
+  margin-left: 20px; /* optional - aligns to left */
 }
+
+/* Hover effect */
+.create-company-link:hover {
+  background-color: #c40811; /* slightly darker red */
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(229, 9, 20, 0.35);
+}
+
 
 /* Corner borders */
-.create-company-link::before,
-.create-company-link::after {
-  content: "";
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 2.5px solid #1c448e;
-  transition: all 0.3s ease;
-}
 
-.create-company-link::before {
-  top: 8px;
-  left: 8px;
-  border-right: none;
-  border-bottom: none;
-}
-
-.create-company-link::after {
-  bottom: 8px;
-  right: 8px;
-  border-left: none;
-  border-top: none;
-}
 
 /* Hover animation */
-.create-company-link:hover::before {
+/* .create-company-link:hover::before {
   top: 0;
   left: 0;
-}
+} */
 
 .create-company-link:hover::after {
   bottom: 0;
@@ -486,4 +461,22 @@ label[data-required]::after {
   font-size: 14px;
   border-top: 2px solid #e0e0e0;
   border-radius: 0 0 8px 8px;
+}
+
+.register-container .search-box {
+  padding: 10px 14px;
+  width: 260px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.register-container .search-box:focus {
+  border-color: black;
+  box-shadow: 0 0 5px rgba(28, 68, 142, 0.4);
 }

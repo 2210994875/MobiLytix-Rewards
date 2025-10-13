@@ -605,547 +605,433 @@ ru: {
       outro: "Se você não concordar com estes termos, não poderá continuar com o registro da empresa.",
     },
   },
+
+  // Bengali (bn)
+be: {
+  labels: {
+    company: "কোম্পানির নাম",
+    heading_create: "কোম্পানির প্রোফাইল তৈরি করুন",
+    heading_edit: "কোম্পানির প্রোফাইল সম্পাদনা করুন",
+    company_info: "কোম্পানির তথ্য",
+    welcome: "স্বাগতম",
+    language_name: "বাংলা",
+    company_id: "কোম্পানি আইডি",
+    company_name: "কোম্পানির নাম",
+    description: "বিবরণ",
+    address: "ঠিকানা",
+    owner: "মালিক",
+    email: "ইমেইল",
+    mobile: "মোবাইল",
+    landline: "ল্যান্ডলাইন",
+    category: "বিভাগ",
+    subcategory: "উপবিভাগ",
+    discount: "ছাড় (%)",
+    comments: "মন্তব্য",
+    contract: "চুক্তি আপলোড করুন",
+    agree_prefix: "আমি সম্মত",
+    terms: "শর্তাবলী",
+    cancel: "বাতিল",
+    approve: "অনুমোদন",
+    update: "আপডেট",
+  },
+  dropdowns: {
+    select: "--নির্বাচন করুন--",
+    categories: ["হোটেল", "খুচরা বিক্রেতা"],
+    subcategories: ["স্বাস্থ্য", "মুদিখানা", "ফ্যাশন"],
+  },
+  errors: {
+    company_id: "কোম্পানি আইডি প্রয়োজন",
+    company_name: "কোম্পানির নাম প্রয়োজন",
+    description: "বিবরণ প্রয়োজন",
+    address: "ঠিকানা প্রয়োজন",
+    owner: "মালিক প্রয়োজন",
+    email: "বৈধ ইমেইল প্রয়োজন",
+    mobile: "মোবাইল ৮–১৫ সংখ্যা হতে হবে",
+    discount_required: "ছাড় প্রয়োজন",
+    discount_format: "সর্বোচ্চ ২-অঙ্কের সংখ্যা",
+    category: "বিভাগ নির্বাচন করুন",
+    subcategory: "উপবিভাগ নির্বাচন করুন",
+    agree: "আপনাকে শর্তাবলীতে সম্মত হতে হবে",
+  },
+  terms: {
+    title: "শর্তাবলী",
+    intro: "এই শর্তাবলী এই পরিষেবা ব্যবহারের নিয়মগুলি নির্ধারণ করে। ফর্ম জমা দিয়ে আপনি এই শর্তগুলির সাথে সম্মত হচ্ছেন।",
+    points: [
+      "সঠিক কোম্পানির তথ্য প্রদান করুন।",
+      "নিশ্চিত করুন যে আপলোড করা চুক্তি বৈধ।",
+      "গোপনীয়তা এবং ডেটা প্রক্রিয়াকরণের নিয়ম মেনে চলুন।",
+    ],
+    outro: "যদি আপনি এই শর্তগুলির সাথে একমত না হন, তবে আপনি নিবন্ধন চালিয়ে যেতে পারবেন না।",
+  },
+},
+
+// Urdu (ur)
+ur: {
+  labels: {
+    company: "کمپنی کا نام",
+    heading_create: "کمپنی پروفائل بنائیں",
+    heading_edit: "کمپنی پروفائل میں ترمیم کریں",
+    company_info: "کمپنی کی معلومات",
+    welcome: "خوش آمدید",
+    language_name: "اردو",
+    company_id: "کمپنی آئی ڈی",
+    company_name: "کمپنی کا نام",
+    description: "تفصیل",
+    address: "پتہ",
+    owner: "مالک",
+    email: "ای میل",
+    mobile: "موبائل",
+    landline: "لینڈ لائن",
+    category: "زمرہ",
+    subcategory: "ذیلی زمرہ",
+    discount: "چھوٹ (%)",
+    comments: "تبصرے",
+    contract: "معاہدہ اپ لوڈ کریں",
+    agree_prefix: "میں اتفاق کرتا ہوں",
+    terms: "شرائط و ضوابط",
+    cancel: "منسوخ کریں",
+    approve: "منظور کریں",
+    update: "اپ ڈیٹ کریں",
+  },
+  dropdowns: {
+    select: "--منتخب کریں--",
+    categories: ["ہوٹل", "تھوک فروش"],
+    subcategories: ["صحت", "کریانہ", "فیشن"],
+  },
+  errors: {
+    company_id: "کمپنی آئی ڈی درکار ہے",
+    company_name: "کمپنی کا نام درکار ہے",
+    description: "تفصیل درکار ہے",
+    address: "پتہ درکار ہے",
+    owner: "مالک درکار ہے",
+    email: "درست ای میل ضروری ہے",
+    mobile: "موبائل 8–15 ہندسوں کا ہونا چاہیے",
+    discount_required: "چھوٹ درکار ہے",
+    discount_format: "زیادہ سے زیادہ دو ہندسوں کی تعداد",
+    category: "زمرہ منتخب کریں",
+    subcategory: "ذیلی زمرہ منتخب کریں",
+    agree: "آپ کو شرائط سے اتفاق کرنا ہوگا",
+  },
+  terms: {
+    title: "شرائط و ضوابط",
+    intro: "یہ شرائط اور ضوابط اس سروس کے استعمال کے اصول بیان کرتی ہیں۔ فارم جمع کر کے آپ ان شرائط سے اتفاق کرتے ہیں۔",
+    points: [
+      "درست کمپنی کی تفصیلات فراہم کریں۔",
+      "یقینی بنائیں کہ اپ لوڈ کردہ معاہدہ درست ہے۔",
+      "رازداری اور ڈیٹا پروسیسنگ کے اصولوں کا احترام کریں۔",
+    ],
+    outro: "اگر آپ ان شرائط سے اتفاق نہیں کرتے تو آپ رجسٹریشن جاری نہیں رکھ سکتے۔",
+  },
+},
+
+// Indonesian (id)
+in: {
+  labels: {
+    company: "Nama Perusahaan",
+    heading_create: "Buat Profil Perusahaan",
+    heading_edit: "Edit Profil Perusahaan",
+    company_info: "Informasi Perusahaan",
+    welcome: "Selamat datang",
+    language_name: "Bahasa Indonesia",
+    company_id: "ID Perusahaan",
+    company_name: "Nama Perusahaan",
+    description: "Deskripsi",
+    address: "Alamat",
+    owner: "Pemilik",
+    email: "Email",
+    mobile: "Ponsel",
+    landline: "Telepon Rumah",
+    category: "Kategori",
+    subcategory: "Subkategori",
+    discount: "Diskon (%)",
+    comments: "Komentar",
+    contract: "Unggah Kontrak",
+    agree_prefix: "Saya setuju dengan",
+    terms: "Syarat dan Ketentuan",
+    cancel: "Batal",
+    approve: "Setuju",
+    update: "Perbarui",
+  },
+  dropdowns: {
+    select: "--Pilih--",
+    categories: ["Hotel", "Ritel"],
+    subcategories: ["Kesehatan", "Grosir", "Fashion"],
+  },
+  errors: {
+    company_id: "ID Perusahaan wajib diisi",
+    company_name: "Nama Perusahaan wajib diisi",
+    description: "Deskripsi wajib diisi",
+    address: "Alamat wajib diisi",
+    owner: "Pemilik wajib diisi",
+    email: "Email yang valid diperlukan",
+    mobile: "Nomor ponsel harus 8–15 digit",
+    discount_required: "Diskon wajib diisi",
+    discount_format: "Maksimal 2 digit",
+    category: "Pilih kategori",
+    subcategory: "Pilih subkategori",
+    agree: "Anda harus menyetujui syarat dan ketentuan",
+  },
+  terms: {
+    title: "Syarat dan Ketentuan",
+    intro: "Syarat dan ketentuan ini menjelaskan aturan penggunaan layanan ini. Dengan mengirimkan formulir ini, Anda setuju untuk mematuhi aturan ini.",
+    points: [
+      "Berikan informasi perusahaan yang akurat.",
+      "Pastikan kontrak yang diunggah valid.",
+      "Hormati kebijakan privasi dan pemrosesan data.",
+    ],
+    outro: "Jika Anda tidak setuju dengan syarat ini, Anda tidak dapat melanjutkan pendaftaran perusahaan.",
+  },
+},
+
+// Swahili (sw)
+sw: {
+  labels: {
+    company: "Jina la Kampuni",
+    heading_create: "Unda Profaili ya Kampuni",
+    heading_edit: "Hariri Profaili ya Kampuni",
+    company_info: "Taarifa za Kampuni",
+    welcome: "Karibu",
+    language_name: "Kiswahili",
+    company_id: "Kitambulisho cha Kampuni",
+    company_name: "Jina la Kampuni",
+    description: "Maelezo",
+    address: "Anwani",
+    owner: "Mmiliki",
+    email: "Barua pepe",
+    mobile: "Simu ya mkononi",
+    landline: "Simu ya mezani",
+    category: "Aina",
+    subcategory: "Aina Ndogo",
+    discount: "Punguzo (%)",
+    comments: "Maoni",
+    contract: "Pakia Mkataba",
+    agree_prefix: "Nakubali",
+    terms: "Sheria na Masharti",
+    cancel: "Ghairi",
+    approve: "Kubali",
+    update: "Sasisha",
+  },
+  dropdowns: {
+    select: "--Chagua--",
+    categories: ["Hoteli", "Uuzaji wa rejareja"],
+    subcategories: ["Afya", "Vyakula", "Mitindo"],
+  },
+  errors: {
+    company_id: "Kitambulisho cha kampuni kinahitajika",
+    company_name: "Jina la kampuni linahitajika",
+    description: "Maelezo yanahitajika",
+    address: "Anwani inahitajika",
+    owner: "Mmiliki anahitajika",
+    email: "Barua pepe sahihi inahitajika",
+    mobile: "Nambari ya simu lazima iwe na tarakimu 8–15",
+    discount_required: "Punguzo linahitajika",
+    discount_format: "Tarakimu zisizozidi 2",
+    category: "Chagua aina",
+    subcategory: "Chagua aina ndogo",
+    agree: "Lazima ukubaliane na masharti",
+  },
+  terms: {
+    title: "Sheria na Masharti",
+    intro: "Masharti haya yanaeleza kanuni za kutumia huduma hii. Kwa kutuma fomu hii, unakubali masharti haya.",
+    points: [
+      "Toa taarifa sahihi za kampuni.",
+      "Hakikisha mikataba iliyopakiwa ni halali.",
+      "Heshimu sera za faragha na usindikaji wa data.",
+    ],
+    outro: "Kama hukubaliani na masharti haya, huwezi kuendelea na usajili wa kampuni.",
+  },
+},
+
+// Turkish (tr)
+tu: {
+  labels: {
+    company: "Şirket Adı",
+    heading_create: "Şirket Profili Oluştur",
+    heading_edit: "Şirket Profilini Düzenle",
+    company_info: "Şirket Bilgileri",
+    welcome: "Hoşgeldiniz",
+    language_name: "Türkçe",
+    company_id: "Şirket Kimliği",
+    company_name: "Şirket Adı",
+    description: "Açıklama",
+    address: "Adres",
+    owner: "Sahip",
+    email: "E-posta",
+    mobile: "Cep Telefonu",
+    landline: "Sabit Hat",
+    category: "Kategori",
+    subcategory: "Alt Kategori",
+    discount: "İndirim (%)",
+    comments: "Yorumlar",
+    contract: "Sözleşme Yükle",
+    agree_prefix: "Kabul ediyorum",
+    terms: "Şartlar ve Koşullar",
+    cancel: "İptal",
+    approve: "Onayla",
+    update: "Güncelle",
+  },
+  dropdowns: {
+    select: "--Seçin--",
+    categories: ["Otel", "Perakende"],
+    subcategories: ["Sağlık", "Market", "Moda"],
+  },
+  errors: {
+    company_id: "Şirket kimliği gerekli",
+    company_name: "Şirket adı gerekli",
+    description: "Açıklama gerekli",
+    address: "Adres gerekli",
+    owner: "Sahip gerekli",
+    email: "Geçerli bir e-posta gerekli",
+    mobile: "Telefon numarası 8–15 haneli olmalıdır",
+    discount_required: "İndirim gerekli",
+    discount_format: "Maksimum 2 basamaklı sayı",
+    category: "Kategori seçin",
+    subcategory: "Alt kategori seçin",
+    agree: "Şartları kabul etmelisiniz",
+  },
+  terms: {
+    title: "Şartlar ve Koşullar",
+    intro: "Bu şartlar hizmetin kullanım kurallarını açıklar. Bu formu göndererek şartları kabul etmiş olursunuz.",
+    points: [
+      "Doğru şirket bilgilerini sağlayın.",
+      "Yüklenen sözleşmelerin geçerli olduğundan emin olun.",
+      "Gizlilik ve veri işleme kurallarına uyun.",
+    ],
+    outro: "Bu şartları kabul etmiyorsanız, kayıt işlemine devam edemezsiniz.",
+  },
+},
+
+// Korean (ko)
+ko: {
+  labels: {
+    company: "회사 이름",
+    heading_create: "회사 프로필 생성",
+    heading_edit: "회사 프로필 편집",
+    company_info: "회사 정보",
+    welcome: "환영합니다",
+    language_name: "한국어",
+    company_id: "회사 ID",
+    company_name: "회사 이름",
+    description: "설명",
+    address: "주소",
+    owner: "소유자",
+    email: "이메일",
+    mobile: "휴대전화",
+    landline: "유선전화",
+    category: "카테고리",
+    subcategory: "하위 카테고리",
+    discount: "할인 (%)",
+    comments: "댓글",
+    contract: "계약서 업로드",
+    agree_prefix: "동의합니다",
+    terms: "이용 약관",
+    cancel: "취소",
+    approve: "승인",
+    update: "업데이트",
+  },
+  dropdowns: {
+    select: "--선택--",
+    categories: ["호텔", "소매업"],
+    subcategories: ["건강", "식료품", "패션"],
+  },
+  errors: {
+    company_id: "회사 ID가 필요합니다",
+    company_name: "회사 이름이 필요합니다",
+    description: "설명이 필요합니다",
+    address: "주소가 필요합니다",
+    owner: "소유자가 필요합니다",
+    email: "유효한 이메일이 필요합니다",
+    mobile: "전화번호는 8–15자리여야 합니다",
+    discount_required: "할인이 필요합니다",
+    discount_format: "최대 2자리 숫자",
+    category: "카테고리를 선택하세요",
+    subcategory: "하위 카테고리를 선택하세요",
+    agree: "약관에 동의해야 합니다",
+  },
+  terms: {
+    title: "이용 약관",
+    intro: "이 약관은 서비스 사용 규칙을 설명합니다. 양식을 제출함으로써 이 조건에 동의하는 것으로 간주됩니다.",
+    points: [
+      "정확한 회사 정보를 제공하세요.",
+      "업로드된 계약이 유효한지 확인하세요.",
+      "개인정보 보호 및 데이터 처리 규칙을 준수하세요.",
+    ],
+    outro: "이 조건에 동의하지 않으면 회사 등록을 계속할 수 없습니다.",
+  },
+},
+
+// Italian (it)
+it: {
+  labels: {
+    company: "Nome dell'azienda",
+    heading_create: "Crea profilo aziendale",
+    heading_edit: "Modifica profilo aziendale",
+    company_info: "Informazioni sull'azienda",
+    welcome: "Benvenuto",
+    language_name: "Italiano",
+    company_id: "ID azienda",
+    company_name: "Nome dell'azienda",
+    description: "Descrizione",
+    address: "Indirizzo",
+    owner: "Proprietario",
+    email: "Email",
+    mobile: "Cellulare",
+    landline: "Telefono fisso",
+    category: "Categoria",
+    subcategory: "Sottocategoria",
+    discount: "Sconto (%)",
+    comments: "Commenti",
+    contract: "Carica contratto",
+    agree_prefix: "Accetto",
+    terms: "Termini e condizioni",
+    cancel: "Annulla",
+    approve: "Approva",
+    update: "Aggiorna",
+  },
+  dropdowns: {
+    select: "--Seleziona--",
+    categories: ["Hotel", "Vendita al dettaglio"],
+    subcategories: ["Salute", "Alimentari", "Moda"],
+  },
+  errors: {
+    company_id: "ID azienda obbligatorio",
+    company_name: "Nome azienda obbligatorio",
+    description: "Descrizione obbligatoria",
+    address: "Indirizzo obbligatorio",
+    owner: "Proprietario obbligatorio",
+    email: "Email valida obbligatoria",
+    mobile: "Il numero deve avere tra 8 e 15 cifre",
+    discount_required: "Sconto obbligatorio",
+    discount_format: "Numero massimo di 2 cifre",
+    category: "Seleziona una categoria",
+    subcategory: "Seleziona una sottocategoria",
+    agree: "Devi accettare i termini",
+  },
+  terms: {
+    title: "Termini e condizioni",
+    intro: "Questi termini descrivono le regole per l'utilizzo del servizio. Inviando questo modulo accetti tali condizioni.",
+    points: [
+      "Fornisci informazioni aziendali accurate.",
+      "Assicurati che i contratti caricati siano validi.",
+      "Rispetta le norme sulla privacy e sul trattamento dei dati.",
+    ],
+    outro: "Se non accetti questi termini, non puoi continuare la registrazione dell'azienda.",
+  },
+},
+
 };
 
 
-// export default function CompanyProfileForm() {
-//    const BASE_LANGS = ["en", "fr", "ar"];
-//   const [extraLangs, setExtraLangs] = useState([]); 
-//   const [activeLang, setActiveLang] = useState("en");
-//   const [form, setForm] = useState({
-//   company_id: "",
-//   languages: {
-//     en: { company: "", desc: "", address: "", owner: "" },
-//     fr: { company: "", desc: "", address: "", owner: "" },
-//     ar: { company: "", desc: "", address: "", owner: "" },
-//   },
-//   email: "",
-//   mobile: "",
-//   landline: "",
-//   category: "",
-//   subcategory: "",
-//   discount: "",
-//   comments: "",
-//   agree: false,
-// });
-
-  // const [form, setForm] = useState({
-  //   company_id: "",
-  //   companyEn: "",
-  //   descEn: "",
-  //   addressEn: "",
-  //   ownerEn: "",
-  //   companyFr: "",
-  //   descFr: "",
-  //   addressFr: "",
-  //   ownerFr: "",
-  //   companyAr: "",
-  //   descAr: "",
-  //   addressAr: "",
-  //   ownerAr: "",
-  //   email: "",
-  //   mobile: "",
-  //   landline: "",
-  //   category: "",
-  //   subcategory: "",
-  //   discount: "",
-  //   comments: "",
-  //   agree: false,
-  // });
-
-//   const [file, setFile] = useState(null);
-//   const [errors, setErrors] = useState({});
-//   const [showTerms, setShowTerms] = useState(false);
-
-//   const { id } = useParams(); // edit mode if id exists
-//   const navigate = useNavigate();
-
-//   // Fetch existing company data when editing
-//   useEffect(() => {
-//     if (id) {
-//       const fetchCompany = async () => {
-//         try {
-//           const base = import.meta.env.VITE_API_URL || "";
-//           console.log("📡 Fetching company:", `${base}/api/companies/${id}`); // log request URL
-//           const res = await fetch(`${base}/api/companies/${id}`);
-//           const response = await res.json();
-
-//           if (response.success) {
-//             const c = response.data;
-//             setForm((prev) => ({
-//               ...prev,
-//               company_id: c.company_id,
-//               email: c.email,
-//               mobile: c.mobile,
-//               landline: c.landline,
-//               category: c.category,
-//               subcategory: c.subcategory,
-//               discount: c.discount,
-//               comments: c.comments,
-
-//               companyEn: c.properties?.EN?.company_name || "",
-//               descEn: c.properties?.EN?.description || "",
-//               addressEn: c.properties?.EN?.address || "",
-//               ownerEn: c.properties?.EN?.owner_name || "",
-
-//               companyFr: c.properties?.FR?.company_name || "",
-//               descFr: c.properties?.FR?.description || "",
-//               addressFr: c.properties?.FR?.address || "",
-//               ownerFr: c.properties?.FR?.owner_name || "",
-
-//               companyAr: c.properties?.AR?.company_name || "",
-//               descAr: c.properties?.AR?.description || "",
-//               addressAr: c.properties?.AR?.address || "",
-//               ownerAr: c.properties?.AR?.owner_name || "",
-//             }));
-//           }
-//         } catch (err) {
-//           console.error("❌ Failed to load company:", err);
-//         }
-//       };
-
-//       fetchCompany();
-//     }
-//   }, [id]);
-
-//   const has = (s) => !!(s && s.trim());
-//   const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-//   const validate = (f) => {
-//     const e = {};
-//     const t = messages[activeLang].errors;
-
-//     if (!has(f.company_id)) e.company_id = t.company_id;
-
-//     if (activeLang === "en") {
-//       if (!has(f.companyEn)) e.companyEn = t.company_name;
-//       if (!has(f.descEn)) e.descEn = t.description;
-//       if (!has(f.addressEn)) e.addressEn = t.address;
-//       if (!has(f.ownerEn)) e.ownerEn = t.owner;
-//     }
-//     if (activeLang === "fr") {
-//       if (!has(f.companyFr)) e.companyFr = t.company_name;
-//       if (!has(f.descFr)) e.descFr = t.description;
-//       if (!has(f.addressFr)) e.addressFr = t.address;
-//       if (!has(f.ownerFr)) e.ownerFr = t.owner;
-//     }
-//     if (activeLang === "ar") {
-//       if (!has(f.companyAr)) e.companyAr = t.company_name;
-//       if (!has(f.descAr)) e.descAr = t.description;
-//       if (!has(f.addressAr)) e.addressAr = t.address;
-//       if (!has(f.ownerAr)) e.ownerAr = t.owner;
-//     }
-
-//     if (!emailRx.test(f.email)) e.email = t.email;
-//     if (!/^\d{8,15}$/.test(String(f.mobile || ""))) e.mobile = t.mobile;
-//     if (!has(f.discount)) e.discount = t.discount_required;
-//     else if (!/^\d{1,2}$/.test(f.discount)) e.discount = t.discount_format;
-//     if (!f.category) e.category = t.category;
-//     if (!f.subcategory) e.subcategory = t.subcategory;
-//     if (!f.agree) e.agree = t.agree;
-
-//     return e;
-//   };
-
-//   const handleChange = (e) => {
-//     const { name, value, type, checked } = e.target;
-//     const val = type === "checkbox" ? checked : value;
-//     setForm((prev) => ({ ...prev, [name]: val }));
-//     setErrors((prev) => {
-//       const updated = { ...prev };
-//       if (has(val)) delete updated[name];
-//       return updated;
-//     });
-//   };
-
-//   const handleFile = (e) => setFile(e.target.files?.[0] || null);
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     const v = validate(form);
-//     setErrors(v);
-//     if (Object.keys(v).length > 0) return;
-
-//     const fd = new FormData();
-//     fd.append("company_id", form.company_id);
-//     fd.append("email", form.email);
-//     fd.append("mobile", form.mobile);
-//     fd.append("landline", form.landline);
-//     fd.append("category", form.category);
-//     fd.append("subcategory", form.subcategory);
-//     fd.append("discount", form.discount);
-//     fd.append("comments", form.comments);
-//     if (file) fd.append("contract", file);
-
-//     let activeProperties = {};
-//     if (activeLang === "en") {
-//       activeProperties = {
-//         EN: {
-//           company_name: form.companyEn,
-//           description: form.descEn,
-//           address: form.addressEn,
-//           owner_name: form.ownerEn,
-//         },
-//       };
-//     } else if (activeLang === "fr") {
-//       activeProperties = {
-//         FR: {
-//           company_name: form.companyFr,
-//           description: form.descFr,
-//           address: form.addressFr,
-//           owner_name: form.ownerFr,
-//         },
-//       };
-//     } else if (activeLang === "ar") {
-//       activeProperties = {
-//         AR: {
-//           company_name: form.companyAr,
-//           description: form.descAr,
-//           address: form.addressAr,
-//           owner_name: form.ownerAr,
-//         },
-//       };
-//     }
-//     fd.append("properties", JSON.stringify(activeProperties));
-
-//     try {
-//       const base = import.meta.env.VITE_API_URL || "";
-//       const url = id
-//         ? `${base}/api/companies/${id}` // update
-//         : `${base}/api/companies`; // create
-//       const method = id ? "PUT" : "POST";
-
-//       const res = await fetch(url, {
-//         method,
-//         body: fd,
-//       });
-
-//       const response = await res.json();
-//       if (!res.ok) {
-//         alert(`❌ Failed to save company: ${response.error || "Unknown error"}`);
-//         return;
-//       }
-
-//       alert(id ? "✅ Company updated successfully!" : "✅ Company created successfully!");
-//       navigate("/company-profile");
-//     } catch (err) {
-//       console.error("❌ Error:", err);
-//       alert("❌ Failed to save company: " + err.message);
-//     }
-//   };
-
-//   const langKey = activeLang.charAt(0).toUpperCase() + activeLang.slice(1);
-
-//   return (
-//     <div className="register-container">
-//      <header className="banner" dir={activeLang === "ar" ? "rtl" : "ltr"}>
-//   <h1>
-//     {id
-//       ? messages[activeLang].labels.heading_edit
-//       : messages[activeLang].labels.heading_create}
-//   </h1>
-// </header>
-
-// <main className="form-card" dir={activeLang === "ar" ? "rtl" : "ltr"}>
-//   <h2>{messages[activeLang].labels.company_info}</h2>
-
-//         <form onSubmit={handleSubmit} autoComplete="off">
-//           {/* Company ID */}
-//           <div className="row">
-//             <div className="col">
-//               <label>
-//                 {messages[activeLang].labels.company_id}
-//                 <span className="required">*</span>
-//               </label>
-//               <input
-//                 type="text"
-//                 name="company_id"
-//                // placeholder="Enter Company ID"
-//                 value={form.company_id}
-//                 onChange={handleChange}
-//                 disabled={!!id} // lock when editing
-//               />
-//               {errors.company_id && <p className="error">{errors.company_id}</p>}
-//             </div>
-//           </div>
-
-//           {/* Language tabs */}
-//           <div className="lang-tabs">
-//             <button
-//               className={`lang-btn ${activeLang === "en" ? "active" : ""}`}
-//               onClick={(e) => {
-//                 e.preventDefault();
-//                 setActiveLang("en");
-//               }}
-//             >
-//               English
-//             </button>
-//             <button
-//               className={`lang-btn ${activeLang === "fr" ? "active" : ""}`}
-//               onClick={(e) => {
-//                 e.preventDefault();
-//                 setActiveLang("fr");
-//               }}
-//             >
-//               Français
-//             </button>
-//             <button
-//               className={`lang-btn ${activeLang === "ar" ? "active" : ""}`}
-//               onClick={(e) => {
-//                 e.preventDefault();
-//                 setActiveLang("ar");
-//               }}
-//             >
-//                العربية
-//             </button>
-//           </div>
-
-//           {/* Language card */}
-//           <div className="lang-card" dir={activeLang === "ar" ? "rtl" : "ltr"}>
-//             <h3 className="welcome-heading">{messages[activeLang].labels.welcome}</h3>
-
-//             <div className="field">
-//               <label>
-//                 {messages[activeLang].labels.company_name}
-//                 <span className="required">*</span>
-//               </label>
-//               <input
-//                 name={`company${langKey}`}
-//                 value={form[`company${langKey}`]}
-//                 onChange={handleChange}
-//               />
-//               {errors[`company${langKey}`] && (
-//                 <p className="error">{errors[`company${langKey}`]}</p>
-//               )}
-//             </div>
-
-//             <div className="field">
-//               <label>
-//                 {messages[activeLang].labels.description}
-//                 <span className="required">*</span>
-//               </label>
-//               <textarea
-//                 name={`desc${langKey}`}
-//                 rows="3"
-//                 value={form[`desc${langKey}`]}
-//                 onChange={handleChange}
-//               />
-//               {errors[`desc${langKey}`] && (
-//                 <p className="error">{errors[`desc${langKey}`]}</p>
-//               )}
-//             </div>
-
-//             <div className="field">
-//               <label>
-//                 {messages[activeLang].labels.address}
-//                 <span className="required">*</span>
-//               </label>
-//               <textarea
-//                 name={`address${langKey}`}
-//                 rows="3"
-//                 value={form[`address${langKey}`]}
-//                 onChange={handleChange}
-//               />
-//               {errors[`address${langKey}`] && (
-//                 <p className="error">{errors[`address${langKey}`]}</p>
-//               )}
-//             </div>
-
-//             <div className="field">
-//               <label>
-//                 {messages[activeLang].labels.owner}
-//                 <span className="required">*</span>
-//               </label>
-//               <input
-//                 name={`owner${langKey}`}
-//                 value={form[`owner${langKey}`]}
-//                 onChange={handleChange}
-//               />
-//               {errors[`owner${langKey}`] && (
-//                 <p className="error">{errors[`owner${langKey}`]}</p>
-//               )}
-//             </div>
-//           </div>
-
-//           {/* Global fields */}
-//           <div className="row">
-//             <div className="col">
-//               <label>
-//                 {messages[activeLang].labels.email}
-//                 <span className="required">*</span>
-//               </label>
-//               <input type="email" name="email" value={form.email} onChange={handleChange} />
-//               {errors.email && <p className="error">{errors.email}</p>}
-//             </div>
-//             <div className="col">
-//               <label>
-//                 {messages[activeLang].labels.mobile}
-//                 <span className="required">*</span>
-//               </label>
-//               <input type="tel" name="mobile" value={form.mobile} onChange={handleChange} />
-//               {errors.mobile && <p className="error">{errors.mobile}</p>}
-//             </div>
-//           </div>
-
-//           <div className="row">
-//             <div className="col">
-//               <label>{messages[activeLang].labels.landline}</label>
-//               <input type="tel" name="landline" value={form.landline} onChange={handleChange} />
-//             </div>
-//           </div>
-
-//           <div className="row">
-//   <div className="col">
-//     <label>
-//       {messages[activeLang].labels.category}
-//       <span className="required">*</span>
-//     </label>
-//     <select
-//       name="category"
-//       value={form.category}
-//       onChange={handleChange}
-//       dir={activeLang === "ar" ? "rtl" : "ltr"}  // ✅ RTL for Arabic
-//     >
-//       <option value="">{messages[activeLang].dropdowns.select}</option>
-//       {messages[activeLang].dropdowns.categories.map((cat, i) => (
-//         <option key={i} value={cat}>{cat}</option>
-//       ))}
-//     </select>
-//     {errors.category && <p className="error">{errors.category}</p>}
-//   </div>
-
-//   <div className="col">
-//     <label>
-//       {messages[activeLang].labels.subcategory}
-//       <span className="required">*</span>
-//     </label>
-//     <select
-//       name="subcategory"
-//       value={form.subcategory}
-//       onChange={handleChange}
-//       dir={activeLang === "ar" ? "rtl" : "ltr"}  // ✅ RTL for Arabic
-//     >
-//       <option value="">{messages[activeLang].dropdowns.select}</option>
-//       {messages[activeLang].dropdowns.subcategories.map((sub, i) => (
-//         <option key={i} value={sub}>{sub}</option>
-//       ))}
-//     </select>
-//     {errors.subcategory && <p className="error">{errors.subcategory}</p>}
-//   </div>
-// </div>
-
-
-//           <div className="row">
-//             <div className="col">
-//               <label>
-//                 {messages[activeLang].labels.discount}
-//                 <span className="required">*</span>
-//               </label>
-//               <input name="discount" value={form.discount} onChange={handleChange} />
-//               {errors.discount && <p className="error">{errors.discount}</p>}
-//             </div>
-//           </div>
-
-//           <div className="row">
-//             <div className="col">
-//               <label>{messages[activeLang].labels.comments}</label>
-//               <textarea name="comments" rows="3" value={form.comments} onChange={handleChange} />
-//             </div>
-//           </div>
-
-// {/* File Upload */}
-
-// <div className="row">
-//   <div className="col file-upload">
-//     <label htmlFor="contract" className="custom-file-label">
-//       📤 {messages[activeLang].labels.contract}
-//     </label>
-//     <input
-//       id="contract"
-//       type="file"
-//       name="contract"
-//       accept=".pdf,.png,.jpg,.jpeg"
-//       onChange={(e) => setFile(e.target.files[0])}
-//       style={{ display: "none" }}
-//     />
-//     <span className="file-name">
-//       {file ? file.name : messages[activeLang].labels.no_file}
-//     </span>
-//   </div>
-// </div>
-
-
-
-// {/* Terms & Conditions */}
-// <div className="row">
-//   <div className="col terms">
-//     <label className="terms-label">
-//       <div
-//         className={`toggle-switch ${form.agree ? "on" : ""}`}
-//         onClick={() => setForm((prev) => ({ ...prev, agree: !prev.agree }))}
-//       >
-//         <div className="toggle-slider"></div>
-//       </div>
-//       <span>
-//         {messages[activeLang].labels.agree_prefix}{" "}
-//         <a
-//           href="#"
-//           onClick={(e) => {
-//             e.preventDefault();
-//             setShowTerms(true);
-//           }}
-//         >
-//           {messages[activeLang].labels.terms}
-//         </a>
-//       </span>
-//     </label>
-//     {errors.agree && <p className="error">{errors.agree}</p>}
-//   </div>
-// </div>
-
-
-// <TermsModal 
-//   open={showTerms} 
-//   onClose={() => setShowTerms(false)} 
-//   activeLang={activeLang} 
-// />
-
-
-
-//           {/* Buttons */}
-//    <div className="button-group">
-//   <button
-//     type="button"
-//     className="btn cancel"
-//     onClick={() => navigate("/company-profile")}
-//   >
-//     {messages[activeLang].labels.cancel}
-//   </button>
-//   <button type="submit" className="btn submit">
-//     {id
-//       ? messages[activeLang].labels.update
-//       : messages[activeLang].labels.approve}
-//   </button>
-// </div>
-
-
-//         </form>
-//       </main>
-
-//       <footer className="footer">© 2025 Comviva. All rights reserved.</footer>
-//     </div>
-//   );
-// }
 
 export default function CompanyProfileForm() {
-   const BASE_LANGS = ["en", "fr", "ar"];
+   const BASE_LANGS = ["en", "ar"];
   const [extraLangs, setExtraLangs] = useState([]); 
   const [activeLang, setActiveLang] = useState("en");
   const [form, setForm] = useState({
   company_id: "",
   languages: {
     en: { company: "", desc: "", address: "", owner: "" },
-    fr: { company: "", desc: "", address: "", owner: "" },
+  //  fr: { company: "", desc: "", address: "", owner: "" },
     ar: { company: "", desc: "", address: "", owner: "" },
   },
   email: "",

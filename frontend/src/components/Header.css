@@ -6,7 +6,7 @@
   left: 250px; /* offset for sidebar */
   right: 0;
   height: 70px;
- background: #f6f7f8;
+  background: #f6f7f8;
   border-bottom: 1px solid #e6e9ef;
   display: flex;
   justify-content: space-between;
@@ -16,7 +16,12 @@
   font-family: "Poppins", sans-serif;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
-  
+}
+
+.top-header {
+  position: absolute;
+  top: 90px; /* was 20px — increase to move down */
+  right: 40px;
 }
 
 /* ===== Left Section ===== */
@@ -38,7 +43,6 @@
 
   letter-spacing: 0.3px;
 }
-
 
 .header-subtitle {
   color: #667085;
@@ -94,3 +98,82 @@
 section {
   margin-bottom: 80px;
 }
+
+/* ============================= */
+/* ✅ Help Center Additions Start */
+/* ============================= */
+
+.help-center-btn {
+  background: black;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.help-center-btn:hover {
+  background: gray;
+  transform: scale(1.03);
+}
+
+.help-dropdown {
+  position: absolute;
+  top: 70px;
+  right: 40px;
+  background: #fff;
+  color: #333;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px;
+  width: 250px;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 200;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.help-dropdown hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.help-heading {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: orangered;
+}
+
+.download-docs {
+  background: black;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  padding: 8px 0;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.download-docs:hover {
+  background: #153670;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* ✅ Help Center Additions End */
+/* ============================= */

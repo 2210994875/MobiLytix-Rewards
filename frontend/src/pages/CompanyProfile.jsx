@@ -1,5 +1,4 @@
 
-
 import { FaEdit, FaTrash } from "react-icons/fa";
 import React, { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
@@ -11,6 +10,7 @@ export default function CompanyProfile() {
   const [loading, setLoading] = useState(true);
   const [redirecting, setRedirecting] = useState(false);
   const [redirectId, setRedirectId] = useState(null);
+  const [searchTerm, setSearchTerm] = useState(""); // 👈 new state
   const navigate = useNavigate();
 
   // Fetch companies from backend
@@ -72,26 +72,53 @@ export default function CompanyProfile() {
 
     setTimeout(() => {
       navigate(`/company-profile/${companyId}/edit`);
-    }, 800); // 2 sec delay
+    }, 800); 
   };
+
+  // ✅ Filter companies based on search term
+  const filteredCompanies = companies.filter((c) => {
+    const firstLang = c.properties ? Object.values(c.properties)[0] : {};
+    return (
+      firstLang?.company_name
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+      c.company_id.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
 
   return (
     <div className="register-container">
       {/* Top bar */}
-      <header className="banner">
-        <div style={{ flex: 1 }}></div> {/* spacer */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "10px",
+        }}
+      >
+        {/* 🔍 Search Box */}
+        <input
+          type="text"
+          placeholder="Search by Company Name"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-box"
+        />
+
+        {/* ➕ Register Button */}
         <Link to="/company-profile/new" className="create-company-link">
           ➕ Register Company
         </Link>
-      </header>
+      </div>
 
       {/* Table of registered companies */}
       <main className="company-table-container">
         <h2>Active Company Profiles</h2>
         {loading ? (
           <p>Loading...</p>
-        ) : companies.length === 0 ? (
-          <p>No companies registered yet.</p>
+        ) : filteredCompanies.length === 0 ? (
+          <p>No matching companies found.</p>
         ) : (
           <table className="company-table">
             <thead>
@@ -109,7 +136,7 @@ export default function CompanyProfile() {
               </tr>
             </thead>
             <tbody>
-              {companies.map((c) => {
+              {filteredCompanies.map((c) => {
                 const firstLang = c.properties
                   ? Object.values(c.properties)[0]
                   : {};
@@ -142,25 +169,23 @@ export default function CompanyProfile() {
                       )}
                     </td>
 
-                <td className="action-buttons">
-  <button
-    className="action-btn edit-btn"
-    onClick={() => handleEdit(c.company_id)}
-    title="Edit Company"
-  >
-    <i className="fas fa-pen"></i>
-  </button>
+                    <td className="action-buttons">
+                      <button
+                        className="action-btn edit-btn"
+                        onClick={() => handleEdit(c.company_id)}
+                        title="Edit Company"
+                      >
+                        <FaEdit />
+                      </button>
 
-  <button
-    className="action-btn delete-btn"
-    onClick={() => handleDelete(c.company_id)}
-    title="Delete Company"
-  >
-    <i className="fas fa-trash"></i>
-  </button>
-</td>
-
-
+                      <button
+                        className="action-btn delete-btn"
+                        onClick={() => handleDelete(c.company_id)}
+                        title="Delete Company"
+                      >
+                        <FaTrash />
+                      </button>
+                    </td>
                   </tr>
                 );
               })}
@@ -180,3 +205,4 @@ export default function CompanyProfile() {
     </div>
   );
 }
+

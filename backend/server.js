@@ -9,6 +9,7 @@ const multer = require('multer');
 const companyRoutes = require('./routes/companyRoutes');
 const languageRoutes = require("./routes/languageRoutes");
 const dashboardRoutes = require("./routes/dashboardRoutes");
+const chatbotRoutes = require("./routes/chatbotRoutes");
 
 
 
@@ -57,6 +58,7 @@ app.get('/api/health', (_req, res) => res.json({ ok: true }));
 app.use("/api/languages", languageRoutes);
 // app.use("/api/languages", languageRoutes);
 app.use("/api/dashboard", dashboardRoutes); 
+app.use("/api/chatbot", chatbotRoutes);
 
 
 /* ---------- Error Handling ---------- */

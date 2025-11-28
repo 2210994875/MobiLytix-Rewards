@@ -1,3 +1,5 @@
+
+// // multer.js
 // const multer = require('multer');
 // const path = require('path');
 // const fs = require('fs');
@@ -5,7 +7,6 @@
 // const contractsDir = path.join(__dirname, 'uploads', 'contracts');
 
 // const storage = multer.diskStorage({
-//   // ensure the folder exists for every request
 //   destination: (_req, _file, cb) => {
 //     fs.mkdir(contractsDir, { recursive: true }, (err) => cb(err, contractsDir));
 //   },
@@ -18,12 +19,7 @@
 // });
 
 // const fileFilter = (_req, file, cb) => {
-//   const ok = [
-//     'application/pdf',
-//     'image/png',
-//     'image/jpeg',
-//     'image/jpg'
-//   ].includes(file.mimetype);
+//   const ok = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg'].includes(file.mimetype);
 //   cb(ok ? null : new Error('Unsupported file type'), ok);
 // };
 
@@ -32,7 +28,8 @@
 //   fileFilter,
 //   limits: { fileSize: 5 * 1024 * 1024 } // 5MB
 // });
-// multer.js
+
+
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -51,9 +48,15 @@ const storage = multer.diskStorage({
   }
 });
 
+// ✅ Allowed file types
+const allowedTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg'];
+
 const fileFilter = (_req, file, cb) => {
-  const ok = ['application/pdf', 'image/png', 'image/jpeg', 'image/jpg'].includes(file.mimetype);
-  cb(ok ? null : new Error('Unsupported file type'), ok);
+  if (allowedTypes.includes(file.mimetype)) {
+    cb(null, true); // allow upload
+  } else {
+    cb(new Error('❌ Unsupported file format. Allowed: PDF, PNG, JPG, JPEG.'), false);
+  }
 };
 
 module.exports = multer({

@@ -64,15 +64,15 @@ exports.updateLanguage = async (req, res) => {
   const { lang_name, lang_description_en, lang_description_local } = req.body;
 
   try {
-    const result = await pool.query(
-      `UPDATE languages
-       SET lang_name = $1,
-           lang_description_en = $2,
-           lang_description_local = $3
-       WHERE lang_id = $4
-       RETURNING *`,
-      [lang_name, lang_description_en, lang_description_local, id]
-    );
+   const result = await pool.query(
+  `UPDATE languages
+   SET lang_description_en = $1,
+       lang_description_local = $2
+   WHERE lang_id = $3
+   RETURNING *`,
+  [lang_description_en, lang_description_local, id]
+);
+
 
     if (result.rows.length === 0) {
       return res.status(404).json({ error: "Language not found" });

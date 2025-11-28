@@ -5,7 +5,7 @@ import {
   FaTachometerAlt,
   FaUser,
   FaLanguage,
-  FaSignOutAlt,
+  //FaSignOutAlt,
   FaPhoneAlt,
   FaEnvelope,
   FaMapMarkerAlt,

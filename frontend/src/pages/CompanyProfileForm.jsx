@@ -193,7 +193,7 @@ const messages = {
    hi: {
     labels: {
       company: "कंपनी का नाम",
-      heading_create: "कंपनी प्रोफ़ाइल बनाएं",
+      heading_create: "कंपनी पंजीकरण पोर्टल में आपका स्वागत है",
       heading_edit: "कंपनी प्रोफ़ाइल संपादित करें",
       company_info: "कंपनी की जानकारी",
       welcome: "स्वागत है",
@@ -1039,7 +1039,7 @@ export default function CompanyProfileForm() {
   landline: "",
   category: "",
   subcategory: "",
-  discount: "",
+  //discount: "",
   comments: "",
   agree: false,
 });
@@ -1116,7 +1116,7 @@ useEffect(() => {
         landline: c.landline || "",
         category: c.category || "",
         subcategory: c.subcategory || "",
-        discount: c.discount || "",
+       // discount: c.discount || "",
         comments: c.comments || "",
         agree: true,
         languages: finalLanguages,
@@ -1163,67 +1163,244 @@ useEffect(() => {
 
 //   return e;
 // };
-const validate = (f) => {
+// const validate = (f) => {
+//   const e = {};
+//   const t = messages[activeLang]?.errors || messages.en.errors;
+
+//   // 🔹 Helper function
+//   const has = (val) => val && val.trim() !== "";
+
+//   // 🌍 Global fields
+//   if (!has(f.company_id)) e.company_id = t.company_id;
+
+//   // ✅ Company Name – required in at least one language
+//   const hasCompany = Object.values(f.languages || {}).some(
+//     (lang) => lang.company && lang.company.trim() !== ""
+//   );
+//   if (!hasCompany)
+//    e.company = t.company_name || messages.en.errors.company_name;
+
+//   // ✅ Description – required in at least one language
+//   const hasDesc = Object.values(f.languages || {}).some(
+//     (lang) => lang.desc && lang.desc.trim() !== ""
+//   );
+//   if (!hasDesc)
+//    e.description = t.description || messages.en.errors.description;
+
+//   // ✅ Address – required in at least one language
+//   const hasAddress = Object.values(f.languages || {}).some(
+//     (lang) => lang.address && lang.address.trim() !== ""
+//   );
+//   if (!hasAddress)
+//    e.address = t.address || messages.en.errors.address;
+
+//   // ✅ Owner – required in at least one language
+//   const hasOwner = Object.values(f.languages || {}).some(
+//     (lang) => lang.owner && lang.owner.trim() !== ""
+//   );
+//   if (!hasOwner)
+//    e.owner = t.owner || messages.en.errors.owner;
+
+//   // ✉️ Email validation
+//   const emailRx = /\S+@\S+\.\S+/;
+//   if (!emailRx.test(f.email)) e.email = t.email || "Enter a valid email.";
+
+//   // 📞 Mobile validation (+, - and numbers only)
+//   if (!/^[0-9+-]{6,15}$/.test(String(f.mobile || "")))
+//     e.mobile = t.mobile || "Enter a valid mobile number.";
+
+//   // 💸 Discount validation
+//   if (!has(f.discount)) e.discount = t.discount_required || "Discount is required.";
+//   else if (!/^\d{1,2}(\.\d{1,2})?$/.test(f.discount))
+//     e.discount = t.discount_format || "Invalid discount format.";
+
+//   // 📂 Dropdowns
+//   if (!f.category) e.category = t.category || "Category is required.";
+//   if (!f.subcategory) e.subcategory = t.subcategory || "Subcategory is required.";
+
+//   // ✅ Terms & Conditions
+//   if (!f.agree) e.agree = t.agree || "You must agree to continue.";
+
+//   return e;
+// };
+
+// const validate = (f) => {
+//  const e = {};
+//  const t = messages[activeLang]?.errors || messages.en.errors;
+ 
+//  // Helper function to check if a value exists and is not empty
+//  const has = (val) => val && val.trim() !== "";
+ 
+//  // 🔹 Validate Company ID (global field)
+//  if (!has(f.company_id)) {
+//  e.company_id = t.company_id;
+//  }
+ 
+//  // 🔹 Validate Email (global field)
+//  if (!has(f.email) || !emailRx.test(f.email)) {
+//  e.email = t.email;
+//  }
+ 
+//  // 🔹 Validate Mobile (global field)
+//  if (!has(f.mobile) || !/^[0-9+\-\s()]{8,15}$/.test(String(f.mobile).replace(/\s/g, ''))) {
+//  e.mobile = t.mobile;
+//  }
+ 
+//  // 🔹 Validate Discount (global field)
+// //  if (!has(f.discount)) {
+// //  e.discount = t.discount_required;
+// //  } else if (!/^\d{1,2}(\.\d{1,2})?$/.test(f.discount)) {
+// //  e.discount = t.discount_format;
+// //  }
+ 
+//  // 🔹 Validate Category & Subcategory (global fields)
+//  if (!f.category || f.category === "") {
+//  e.category = t.category;
+//  }
+ 
+//  if (!f.subcategory || f.subcategory === "") {
+//  e.subcategory = t.subcategory;
+//  }
+ 
+//  // 🔹 Validate Terms Agreement (global field)
+//  if (!f.agree) {
+//  e.agree = t.agree;
+//  }
+ 
+//  // 🌍 MULTILINGUAL VALIDATION - Check if required fields exist in at least one language
+//  const availableLangs = Object.keys(f.languages || {});
+ 
+//  // Company Name - must exist in at least one language
+//  const hasCompanyInAnyLang = availableLangs.some(lang => 
+//  has(f.languages[lang]?.company)
+//  );
+//  if (!hasCompanyInAnyLang) {
+//  e.company = t.company_name || "Company name is required in at least one language";
+//  }
+ 
+//  // Description - must exist in at least one language
+//  const hasDescInAnyLang = availableLangs.some(lang => 
+//  has(f.languages[lang]?.desc)
+//  );
+//  if (!hasDescInAnyLang) {
+//  e.description = t.description || "Description is required in at least one language";
+//  }
+ 
+//  // Address - must exist in at least one language
+//  const hasAddressInAnyLang = availableLangs.some(lang => 
+//  has(f.languages[lang]?.address)
+//  );
+//  if (!hasAddressInAnyLang) {
+//  e.address = t.address || "Address is required in at least one language";
+//  }
+ 
+//  // Owner - must exist in at least one language
+//  const hasOwnerInAnyLang = availableLangs.some(lang => 
+//  has(f.languages[lang]?.owner)
+//  );
+//  if (!hasOwnerInAnyLang) {
+//  e.owner = t.owner || "Owner is required in at least one language";
+//  }
+ 
+//  return e;
+// };
+
+
+const validate = (f, file) => {
   const e = {};
   const t = messages[activeLang]?.errors || messages.en.errors;
 
-  // 🔹 Helper function
+  // ✅ Helper function to check if a value exists and is not empty
   const has = (val) => val && val.trim() !== "";
 
-  // 🌍 Global fields
-  if (!has(f.company_id)) e.company_id = t.company_id;
+  // 🔹 Validate Company ID (global field)
+  if (!has(f.company_id)) {
+    e.company_id = t.company_id || "Company ID is required";
+  }
 
-  // ✅ Company Name – required in at least one language
-  const hasCompany = Object.values(f.languages || {}).some(
-    (lang) => lang.company && lang.company.trim() !== ""
+  // 🔹 Validate Email (global field)
+  if (!has(f.email) || !emailRx.test(f.email)) {
+    e.email = t.email || "Valid email is required";
+  }
+
+  // 🔹 Validate Mobile (global field)
+  if (
+    !has(f.mobile) ||
+    !/^[0-9+\-\s()]{8,15}$/.test(String(f.mobile).replace(/\s/g, ""))
+  ) {
+    e.mobile = t.mobile || "Valid mobile number is required";
+  }
+
+  // 🔹 Validate Category & Subcategory (global fields)
+  if (!f.category || f.category === "") {
+    e.category = t.category || "Category is required";
+  }
+
+  if (!f.subcategory || f.subcategory === "") {
+    e.subcategory = t.subcategory || "Subcategory is required";
+  }
+
+  // 🔹 Validate Terms Agreement (global field)
+  if (!f.agree) {
+    e.agree = t.agree || "You must agree to continue";
+  }
+
+  // 🔹 Validate File Upload (if present)
+  if (file) {
+    const allowedTypes = [
+      "application/pdf",
+      "image/png",
+      "image/jpeg",
+      "image/jpg",
+    ];
+    if (!allowedTypes.includes(file.type)) {
+      e.contract = "Only PDF, PNG, JPG, or JPEG files are supported";
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      e.contract = "File size must be 5MB or less";
+    }
+  }
+
+  // 🌍 MULTILINGUAL VALIDATION - Check if required fields exist in at least one language
+  const availableLangs = Object.keys(f.languages || {});
+
+  // Company Name - must exist in at least one language
+  const hasCompanyInAnyLang = availableLangs.some((lang) =>
+    has(f.languages[lang]?.company)
   );
-  if (!hasCompany)
-   e.company = t.company_name || messages.en.errors.company_name;
+  if (!hasCompanyInAnyLang) {
+    e.company =
+      t.company_name || "Company name is required in at least one language";
+  }
 
-  // ✅ Description – required in at least one language
-  const hasDesc = Object.values(f.languages || {}).some(
-    (lang) => lang.desc && lang.desc.trim() !== ""
+  // Description - must exist in at least one language
+  const hasDescInAnyLang = availableLangs.some((lang) =>
+    has(f.languages[lang]?.desc)
   );
-  if (!hasDesc)
-   e.description = t.description || messages.en.errors.description;
+  if (!hasDescInAnyLang) {
+    e.description =
+      t.description || "Description is required in at least one language";
+  }
 
-  // ✅ Address – required in at least one language
-  const hasAddress = Object.values(f.languages || {}).some(
-    (lang) => lang.address && lang.address.trim() !== ""
+  // Address - must exist in at least one language
+  const hasAddressInAnyLang = availableLangs.some((lang) =>
+    has(f.languages[lang]?.address)
   );
-  if (!hasAddress)
-   e.address = t.address || messages.en.errors.address;
+  if (!hasAddressInAnyLang) {
+    e.address =
+      t.address || "Address is required in at least one language";
+  }
 
-  // ✅ Owner – required in at least one language
-  const hasOwner = Object.values(f.languages || {}).some(
-    (lang) => lang.owner && lang.owner.trim() !== ""
+  // Owner - must exist in at least one language
+  const hasOwnerInAnyLang = availableLangs.some((lang) =>
+    has(f.languages[lang]?.owner)
   );
-  if (!hasOwner)
-   e.owner = t.owner || messages.en.errors.owner;
-
-  // ✉️ Email validation
-  const emailRx = /\S+@\S+\.\S+/;
-  if (!emailRx.test(f.email)) e.email = t.email || "Enter a valid email.";
-
-  // 📞 Mobile validation (+, - and numbers only)
-  if (!/^[0-9+-]{6,15}$/.test(String(f.mobile || "")))
-    e.mobile = t.mobile || "Enter a valid mobile number.";
-
-  // 💸 Discount validation
-  if (!has(f.discount)) e.discount = t.discount_required || "Discount is required.";
-  else if (!/^\d{1,2}(\.\d{1,2})?$/.test(f.discount))
-    e.discount = t.discount_format || "Invalid discount format.";
-
-  // 📂 Dropdowns
-  if (!f.category) e.category = t.category || "Category is required.";
-  if (!f.subcategory) e.subcategory = t.subcategory || "Subcategory is required.";
-
-  // ✅ Terms & Conditions
-  if (!f.agree) e.agree = t.agree || "You must agree to continue.";
+  if (!hasOwnerInAnyLang) {
+    e.owner = t.owner || "Owner is required in at least one language";
+  }
 
   return e;
 };
-
 
 // const handleChange = (e, lang = null) => {
 //   const { name, value, type, checked } = e.target;
@@ -1249,72 +1426,160 @@ const validate = (f) => {
 //     }));
 //   }
 // };
-
 const handleChange = (e, lang = null) => {
-  const { name, value, type, checked } = e.target;
-  const val = type === "checkbox" ? checked : value;
-
-  // 🟢 Update state
-  setForm((prev) => {
-    if (lang) {
-      // 🔤 language-specific field (e.g., company_name, desc, address)
-      return {
-        ...prev,
-        languages: {
-          ...prev.languages,
-          [lang]: {
-            ...prev.languages[lang],
-            [name]: val,
-          },
-        },
-      };
-    } else {
-      // 🌍 global field
-      return { ...prev, [name]: val };
-    }
-  });
-
-  // 🧹 Clear validation dynamically as soon as valid value is entered
-  setErrors((prev) => {
-    const newErrors = { ...prev };
-
-    // 🌍 Global field validations
-    if (!lang) {
-      // ✅ Remove generic "required" error when non-empty
-      if (val && val.trim() !== "") delete newErrors[name];
-
-      // ✅ Specific field validations
-      if (name === "email" && /\S+@\S+\.\S+/.test(val)) delete newErrors[name];
-      if (name === "mobile" && /^\d{6,15}$/.test(val)) delete newErrors[name];
-      if (name === "discount" && /^\d+(\.\d{1,2})?$/.test(val))
-        delete newErrors[name];
-      if (
-        (name === "category" || name === "subcategory") &&
-        val.trim() !== ""
-      )
-        delete newErrors[name];
-      if (name === "company_id" && val.trim() !== "") delete newErrors[name];
-      if (name === "comments" && val.trim() !== "") delete newErrors[name];
-    }
-
-    // 🈯 Language-specific field validations
-    if (lang) {
-      const langErrors = { ...(newErrors[lang] || {}) };
-
-      // Remove required/empty error when text is entered
-      if (val && val.trim() !== "") delete langErrors[name];
-
-      // If nested language errors exist, update them
-      if (Object.keys(langErrors).length > 0) {
-        newErrors[lang] = langErrors;
-      } else {
-        delete newErrors[lang];
-      }
-    }
-
-    return newErrors;
-  });
+ const { name, value, type, checked } = e.target;
+ const val = type === "checkbox" ? checked : value;
+ 
+ // 🟢 Update state
+ setForm((prev) => {
+ if (lang) {
+ // 🔤 language-specific field
+ const updatedLanguages = {
+ ...prev.languages,
+ [lang]: {
+ ...prev.languages[lang],
+ [name]: val,
+ },
+ };
+ return {
+ ...prev,
+ languages: updatedLanguages,
+ };
+ } else {
+ // 🌍 global field
+ return { ...prev, [name]: val };
+ }
+ });
+ 
+ // 🧹 Clear validation errors dynamically
+ setErrors((prev) => {
+ const newErrors = { ...prev };
+ 
+ if (lang) {
+ // 🈯 Language-specific field - check if we now have valid data across all languages
+ const updatedForm = {
+ ...form,
+ languages: {
+ ...form.languages,
+ [lang]: {
+ ...form.languages[lang],
+ [name]: val,
+ },
+ },
+ };
+ 
+ // Clear errors if field now exists in at least one language
+ const fieldMapping = {
+ company: 'company',
+ desc: 'description', 
+ address: 'address',
+ owner: 'owner'
+ };
+ 
+ const errorKey = fieldMapping[name];
+ if (errorKey && val && val.trim() !== "") {
+ // Check if this field now has valid data in at least one language
+ const hasValidInAnyLang = Object.values(updatedForm.languages || {}).some(
+ langData => langData[name] && langData[name].trim() !== ""
+ );
+ if (hasValidInAnyLang) {
+ delete newErrors[errorKey];
+ }
+ }
+ } else {
+ // 🌍 Global field validation clearing
+ if (name === "company_id" && val && val.trim() !== "") {
+ delete newErrors.company_id;
+ }
+ if (name === "email" && val && emailRx.test(val)) {
+ delete newErrors.email;
+ }
+ if (name === "mobile" && val && /^[0-9+\-\s()]{8,15}$/.test(String(val).replace(/\s/g, ''))) {
+ delete newErrors.mobile;
+ }
+ if (name === "discount" && val && /^\d{1,2}(\.\d{1,2})?$/.test(val)) {
+ delete newErrors.discount;
+ }
+ if (name === "category" && val && val !== "") {
+ delete newErrors.category;
+ }
+ if (name === "subcategory" && val && val !== "") {
+ delete newErrors.subcategory;
+ }
+ if (name === "agree" && val === true) {
+ delete newErrors.agree;
+ }
+ }
+ 
+ return newErrors;
+ });
 };
+
+// const handleChange = (e, lang = null) => {
+//   const { name, value, type, checked } = e.target;
+//   const val = type === "checkbox" ? checked : value;
+
+//   // 🟢 Update state
+//   setForm((prev) => {
+//     if (lang) {
+//       // 🔤 language-specific field (e.g., company_name, desc, address)
+//       return {
+//         ...prev,
+//         languages: {
+//           ...prev.languages,
+//           [lang]: {
+//             ...prev.languages[lang],
+//             [name]: val,
+//           },
+//         },
+//       };
+//     } else {
+//       // 🌍 global field
+//       return { ...prev, [name]: val };
+//     }
+//   });
+
+//   // 🧹 Clear validation dynamically as soon as valid value is entered
+//   setErrors((prev) => {
+//     const newErrors = { ...prev };
+
+//     // 🌍 Global field validations
+//     if (!lang) {
+//       // ✅ Remove generic "required" error when non-empty
+//       if (val && val.trim() !== "") delete newErrors[name];
+
+//       // ✅ Specific field validations
+//       if (name === "email" && /\S+@\S+\.\S+/.test(val)) delete newErrors[name];
+//       if (name === "mobile" && /^\d{6,15}$/.test(val)) delete newErrors[name];
+//       if (name === "discount" && /^\d+(\.\d{1,2})?$/.test(val))
+//         delete newErrors[name];
+//       if (
+//         (name === "category" || name === "subcategory") &&
+//         val.trim() !== ""
+//       )
+//         delete newErrors[name];
+//       if (name === "company_id" && val.trim() !== "") delete newErrors[name];
+//       if (name === "comments" && val.trim() !== "") delete newErrors[name];
+//     }
+
+//     // 🈯 Language-specific field validations
+//     if (lang) {
+//       const langErrors = { ...(newErrors[lang] || {}) };
+
+//       // Remove required/empty error when text is entered
+//       if (val && val.trim() !== "") delete langErrors[name];
+
+//       // If nested language errors exist, update them
+//       if (Object.keys(langErrors).length > 0) {
+//         newErrors[lang] = langErrors;
+//       } else {
+//         delete newErrors[lang];
+//       }
+//     }
+
+//     return newErrors;
+//   });
+// };
 
 const handleFieldChange = (e, langCode = null) => {
   const { name, value } = e.target;
@@ -1375,7 +1640,7 @@ const handleFieldChange = (e, langCode = null) => {
   fd.append("landline", form.landline);
   fd.append("category", form.category);
   fd.append("subcategory", form.subcategory);
-  fd.append("discount", form.discount);
+  //fd.append("discount", form.discount);
   fd.append("comments", form.comments);
   if (file) fd.append("contract", file);
 
@@ -1635,7 +1900,7 @@ const handleFieldChange = (e, langCode = null) => {
   </div>
 </div>
 
-<div className="row" dir={activeLang === "ar" ? "rtl" : "ltr"}>
+{/* <div className="row" dir={activeLang === "ar" ? "rtl" : "ltr"}>
   <div className="col">
     <label>
       {messages[activeLang]?.labels?.discount || messages.en.labels.discount}
@@ -1644,7 +1909,7 @@ const handleFieldChange = (e, langCode = null) => {
     <input name="discount" value={form.discount} onChange={handleChange} />
     {errors.discount && <p className="error">{errors.discount}</p>}
   </div>
-</div>
+</div> */}
 
 <div className="row" dir={activeLang === "ar" ? "rtl" : "ltr"}>
   <div className="col">
@@ -1667,13 +1932,33 @@ const handleFieldChange = (e, langCode = null) => {
       📤 {messages[activeLang]?.labels?.contract || messages.en.labels.contract}
     </label>
     <input
-      id="contract"
-      type="file"
-      name="contract"
-      accept=".pdf,.png,.jpg,.jpeg"
-      onChange={(e) => setFile(e.target.files[0])}
-      style={{ display: "none" }}
-    />
+  id="contract"
+  type="file"
+  name="contract"
+  accept=".pdf,.png,.jpg,.jpeg"
+  onChange={(e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      const allowedTypes = ["application/pdf", "image/png", "image/jpeg"];
+      if (!allowedTypes.includes(selectedFile.type)) {
+        alert("❌ Unsupported file format. Please upload PDF, PNG, JPG, or JPEG.");
+        e.target.value = ""; 
+        setFile(null);
+        return;
+      }
+      if (selectedFile.size > 5 * 1024 * 1024) { 
+        alert("❌ File is too large. Max size is 5MB.");
+        e.target.value = "";
+        setFile(null);
+        return;
+      }
+      setFile(selectedFile);
+    }
+  }}
+  style={{ display: "none" }}
+/>
+
+
     <span className="file-name">
       {file
         ? file.name
@@ -1714,6 +1999,7 @@ const handleFieldChange = (e, langCode = null) => {
   open={showTerms}
   onClose={() => setShowTerms(false)}
   activeLang={activeLang}
+   messages={messages} 
 />
 
 {/* Buttons */}

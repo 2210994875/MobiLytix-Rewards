@@ -8,12 +8,14 @@ export default function Header() {
   const helpRef = useRef(null);
 
   // 📘 Handle Documentation Download
- const handleDownload = () => {
-  const link = document.createElement("a");
-  link.href = `docs/website-documentation.pdf`;
-  link.download = "website-documentation.pdf";
-  link.click();
+const handleDownload = () => {
+  window.open(
+    "http://localhost:5000/uploads/contracts/website-documentation.pdf",
+    "_blank",
+    "noopener,noreferrer"
+  );
 };
+
 
 
   // 📘 Close dropdown when clicked outside

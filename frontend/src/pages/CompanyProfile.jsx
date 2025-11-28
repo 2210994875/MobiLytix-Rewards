@@ -72,7 +72,7 @@ export default function CompanyProfile() {
 
     setTimeout(() => {
       navigate(`/company-profile/${companyId}/edit`);
-    }, 800); 
+    }, 800); // 2 sec delay
   };
 
   // ✅ Filter companies based on search term
@@ -130,7 +130,7 @@ export default function CompanyProfile() {
                 <th>Mobile</th>
                 <th>Category</th>
                 <th>Subcategory</th>
-                <th>Discount</th>
+              {/* <th>Discount</th> */}
                 <th>Contract</th>
                 <th>Action</th>
               </tr>
@@ -152,7 +152,7 @@ export default function CompanyProfile() {
                     <td className="mobile">{c.mobile}</td>
                     <td className="category">{c.category}</td>
                     <td className="subcategory">{c.subcategory}</td>
-                    <td className="discount">{c.discount}%</td>
+                    {/* <td className="discount">{c.discount}%</td> */}
 
                     {/* ✅ Show contract download link if available */}
                     <td className="contract">
